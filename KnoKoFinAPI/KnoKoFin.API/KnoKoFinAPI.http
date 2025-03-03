@@ -1,0 +1,6 @@
+@KnoKoFinAPI_HostAddress = http://localhost:5100
+
+GET {{KnoKoFinAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
