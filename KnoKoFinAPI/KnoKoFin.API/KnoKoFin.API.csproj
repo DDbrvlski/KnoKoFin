@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Repositories\Billings\" />
+    <Folder Include="Repositories\Invoices\" />
+    <Folder Include="Services\Billings\" />
+    <Folder Include="Services\Invoices\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KnoKoFin.Database\KnoKoFin.Database.csproj" />
+    <ProjectReference Include="..\KnoKoFin.DTOs\KnoKoFin.DTOs.csproj" />
+    <ProjectReference Include="..\KnoKoFin.Mappings\KnoKoFin.Mappings.csproj" />
+    <ProjectReference Include="..\KnoKoFin.UnitTests\KnoKoFin.UnitTests.csproj" />
+  </ItemGroup>
+
+</Project>
