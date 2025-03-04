@@ -1,5 +1,5 @@
 using KnoKoFin.Mappings.Profiles;
-using KnoKoFin.Database.Context;
+using KnoKoFin.Infrastructure.Persistence;
 
 namespace KnoKoFinAPI
 {
@@ -12,9 +12,7 @@ namespace KnoKoFinAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services
-                .AddApplicationMappings()
-                .AddDbContext<KnoKoFinContext>();
+            builder.Services.AddDbContext<KnoKoFinContext>();
 
 
 

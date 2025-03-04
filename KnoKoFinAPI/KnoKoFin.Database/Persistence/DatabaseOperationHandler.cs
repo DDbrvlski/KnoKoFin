@@ -1,8 +1,7 @@
 ﻿using KnoKoFin.API.Middleware.Exceptions;
-using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KnoKoFin.API.Middleware
+namespace KnoKoFin.Infrastructure.Persistence
 {
     public class DatabaseOperationHandler
     {
@@ -22,7 +21,7 @@ namespace KnoKoFin.API.Middleware
         {
             try
             {
-                await DatabaseOperationHandler.HandleDatabaseOperation(
+                await HandleDatabaseOperation(
                     async () => await context.SaveChangesAsync(),
                     "zapisu danych w bazie");
                 return new OkResult();

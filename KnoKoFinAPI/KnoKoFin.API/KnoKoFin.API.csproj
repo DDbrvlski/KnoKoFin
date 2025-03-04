@@ -16,17 +16,10 @@
     <Folder Include="Controllers\" />
     <Folder Include="Enums\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Repositories\Billings\" />
-    <Folder Include="Repositories\Invoices\" />
-    <Folder Include="Services\Billings\" />
-    <Folder Include="Services\Invoices\" />
-    <Folder Include="Validators\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KnoKoFin.Database\KnoKoFin.Database.csproj" />
-    <ProjectReference Include="..\KnoKoFin.DTOs\KnoKoFin.DTOs.csproj" />
-    <ProjectReference Include="..\KnoKoFin.Mappings\KnoKoFin.Mappings.csproj" />
+    <ProjectReference Include="..\KnoKoFin.Database\KnoKoFin.Infrastructure.csproj" />
     <ProjectReference Include="..\KnoKoFin.UnitTests\KnoKoFin.UnitTests.csproj" />
   </ItemGroup>
 
