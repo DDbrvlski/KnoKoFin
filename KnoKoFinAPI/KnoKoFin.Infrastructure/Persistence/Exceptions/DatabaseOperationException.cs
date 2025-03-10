@@ -1,4 +1,4 @@
-﻿namespace KnoKoFin.API.Middleware.Exceptions
+﻿namespace KnoKoFin.Infrastructure.Persistence.Exceptions
 {
     public class DatabaseOperationException : Exception
     {

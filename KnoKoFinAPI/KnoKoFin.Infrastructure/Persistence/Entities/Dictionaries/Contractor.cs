@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
+﻿using KnoKoFin.Infrastructure.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

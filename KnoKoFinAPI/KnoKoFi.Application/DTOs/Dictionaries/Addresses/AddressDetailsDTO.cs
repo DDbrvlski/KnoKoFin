@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.DTOs.Dictionaries.Addresses
 {
-    public class UpdateAddressDTO : IAddressCommon
+    public class AddressDetailsDTO : IAddressCommon
     {
-        [Required]
-        public int Id { get; set; }
-
-
-
-        [Required]
+        public long Id { get; set; }
         public byte[] RowVersion { get; set; }
     }
 }

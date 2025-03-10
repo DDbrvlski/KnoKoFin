@@ -8,18 +8,23 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\Billings\" />
+    <Folder Include="Controllers\Invoices\" />
     <Folder Include="Enums\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KnoKoFin.Database\KnoKoFin.Infrastructure.csproj" />
+    <ProjectReference Include="..\KnoKoFi.Application\KnoKoFin.Application.csproj" />
+    <ProjectReference Include="..\KnoKoFi.Domain\KnoKoFin.Domain.csproj" />
     <ProjectReference Include="..\KnoKoFin.UnitTests\KnoKoFin.UnitTests.csproj" />
   </ItemGroup>
 

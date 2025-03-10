@@ -1,7 +1,7 @@
-using KnoKoFin.Mappings.Profiles;
 using KnoKoFin.Infrastructure.Persistence;
+using KnoKoFin.API.Configuration;
 
-namespace KnoKoFinAPI
+namespace KnoKoFin.API
 {
     public class Program
     {
@@ -13,7 +13,7 @@ namespace KnoKoFinAPI
 
             builder.Services.AddControllers();
             builder.Services.AddDbContext<KnoKoFinContext>();
-
+            builder.Services.AddApplicationServices();
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

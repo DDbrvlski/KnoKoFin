@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Infrastructure.Persistence.Configurations.Helpers
+namespace KnoKoFin.Infrastructure.Common.Helpers
 {
     public class BaseModel
     {

@@ -1,6 +1,7 @@
 ﻿using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+using KnoKoFin.Infrastructure.Repositories;
 
-namespace KnoKoFin.API.Repositories.Dictionaries.Addresses
+namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses
 {
     public interface IAddressRepository : IGenericRepository<Address>
     {

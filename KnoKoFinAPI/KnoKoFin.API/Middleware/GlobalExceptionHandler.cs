@@ -1,6 +1,8 @@
-﻿using KnoKoFin.API.Middleware.Exceptions;
+﻿using KnoKoFin.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Xunit.Sdk;
 
 namespace KnoKoFin.API.Middleware
 {
@@ -13,23 +15,35 @@ namespace KnoKoFin.API.Middleware
         }
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
-            (int statusCode, string errorMessage) = exception switch
+            // Dopasowanie wyjątków do odpowiednich kodów statusu i wiadomości
+            (int statusCode, string errorMessage, object ? errors) = exception switch
             {
-                ForbidException forbidException => (403, forbidException.Message),
-                BadRequestException badRequestException => (400, badRequestException.Message),
-                NotFoundException notFoundException => (404, notFoundException.Message),
-                UnauthorizedException unauthorizedException => (401, unauthorizedException.Message),
-                
-                ValidationException validationException => (400, validationException.Message),
-                _ => (500, "Something went wrong...")
+                ForbidException forbidException => (StatusCodes.Status403Forbidden, forbidException.Message, null),
+                BadRequestException badRequestException => (StatusCodes.Status400BadRequest, badRequestException.Message, null),
+                NotFoundException notFoundException => (StatusCodes.Status404NotFound, notFoundException.Message, null),
+                UnauthorizedException unauthorizedException => (StatusCodes.Status401Unauthorized, unauthorizedException.Message, null),
+                ValidationException validationEx => (StatusCodes.Status400BadRequest, validationEx.Message, validationEx.Failures), // Użycie Failures zamiast Errors
+                _ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred.", null)
             };
 
-            _logger.LogError(exception, exception.Message);
+            // Logowanie błędu
+            _logger.LogError(exception, "Wystąpił błąd: {ErrorMessage}", exception.Message);
 
+            // Przygotowanie odpowiedzi HTTP
+            var response = new
+            {
+                StatusCode = statusCode,
+                Message = errorMessage,
+                Errors = errors
+            };
+
+            // Ustawienie kodu statusu i wysłanie odpowiedzi w formacie JSON
+            httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = statusCode;
-            await httpContext.Response.WriteAsJsonAsync(errorMessage);
+            await httpContext.Response.WriteAsJsonAsync(response, cancellationToken);
 
             return true;
         }
+
     }
 }

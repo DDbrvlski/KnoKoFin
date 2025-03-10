@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
+﻿using KnoKoFin.Infrastructure.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,5 +31,18 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
         [Column("COUNTRY", TypeName = "varchar(50)")]
         [MaxLength(50)]
         public string Country { get; set; }
+
+        private Address() { }
+
+        public static Address Create(string city, string country, string postCode, string street)
+        {
+            return new Address
+            {
+                City = city,
+                Country = country,
+                PostCode = postCode,
+                Street = street
+            };
+        }
     }
 }

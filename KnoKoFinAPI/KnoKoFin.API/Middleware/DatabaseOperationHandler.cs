@@ -1,5 +1,6 @@
 ﻿using KnoKoFin.API.Middleware.Exceptions;
 using KnoKoFin.Infrastructure.Persistence;
+using KnoKoFin.Infrastructure.Persistence.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KnoKoFin.API.Middleware
