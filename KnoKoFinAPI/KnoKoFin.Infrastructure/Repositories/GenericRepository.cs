@@ -1,5 +1,7 @@
-﻿using KnoKoFin.Infrastructure.Common.Helpers;
+﻿using Azure.Core;
+using KnoKoFin.Infrastructure.Common.Helpers;
 using KnoKoFin.Infrastructure.Persistence;
+using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence.Exceptions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -132,6 +134,11 @@ namespace KnoKoFin.Infrastructure.Repositories
                     entity.IsActive = false;
                     await _context.SaveChangesAsync(cancellationToken);
                 }
+                else
+                {
+                    _logger.LogError($"Nie znaleziono encji {nameof(T)} o ID: {entity.Id}");
+                    throw new NotFoundException(nameof(T), entity.Id);
+                }
             }
             catch (DbUpdateException ex) when (ex.InnerException is Microsoft.Data.SqlClient.SqlException sqlEx)
             {
@@ -142,6 +149,9 @@ namespace KnoKoFin.Infrastructure.Repositories
             }
         }
 
-
+        public async Task<bool> ExistsAsync(long id)
+        {
+            return await _dbSet.AnyAsync(a => a.Id == id && a.IsActive);
+        }
     }
 }

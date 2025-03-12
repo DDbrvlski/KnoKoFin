@@ -9,28 +9,12 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
 {
-    [Table("addresses", Schema = "dictionaries")]
     public class Address : BaseModel
     {
-        [Required]
-        [Column("STREET", TypeName = "varchar(100)")]
-        [MaxLength(100)]
-        public string Street { get; set; }
-
-        [Required]
-        [Column("POSTCODE", TypeName = "varchar(10)")]
-        [MaxLength(10)]
-        public string PostCode { get; set; }
-
-        [Required]
-        [Column("CITY", TypeName = "varchar(50)")]
-        [MaxLength(50)]
-        public string City { get; set; }
-
-        [Required]
-        [Column("COUNTRY", TypeName = "varchar(50)")]
-        [MaxLength(50)]
-        public string Country { get; set; }
+        public string Street { get; private set; }
+        public string PostCode { get; private set; }
+        public string City { get; private set; }
+        public string Country { get; private set; }
 
         private Address() { }
 
@@ -43,6 +27,14 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
                 PostCode = postCode,
                 Street = street
             };
+        }
+        public void Update(string city, string country, string postCode, string street)
+        {
+            Street = street;
+            City = city;
+            Country = country;
+            PostCode = postCode;
+
         }
     }
 }

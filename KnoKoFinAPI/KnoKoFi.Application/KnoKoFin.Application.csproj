@@ -13,10 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Common\Interfaces\Billings\" />
+    <Folder Include="Common\Interfaces\Invoices\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\Billings\" />
-    <Folder Include="Services\Dictionaries\Addresses\Queries\" />
     <Folder Include="Services\Invoices\" />
   </ItemGroup>
 

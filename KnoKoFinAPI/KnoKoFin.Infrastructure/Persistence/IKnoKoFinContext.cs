@@ -21,6 +21,6 @@ namespace KnoKoFin.Infrastructure.Persistence
         DbSet<ServiceType> ServiceTypes { get; set; }
         DbSet<TransactionType> TransactionTypes { get; set; }
 
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

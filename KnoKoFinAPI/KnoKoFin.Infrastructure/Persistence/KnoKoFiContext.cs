@@ -16,9 +16,11 @@ namespace KnoKoFin.Infrastructure.Persistence
     public class KnoKoFinContext : DbContext, IKnoKoFinContext
     {
         private readonly IDateTime _dateTime;
-        public KnoKoFinContext(IDateTime dateTime)
+
+        public KnoKoFinContext(DbContextOptions<KnoKoFinContext> options, IDateTime dateTime)
+            : base(options)
         {
-            _dateTime = dateTime; 
+            _dateTime = dateTime;
         }
         public DbSet<Revenue> Revenues { get; set; }
         public DbSet<RevenuePosition> RevenuePositions { get; set; }
@@ -34,7 +36,13 @@ namespace KnoKoFin.Infrastructure.Persistence
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            UpdateTimestamps();
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void UpdateTimestamps()
         {
             foreach (var entry in ChangeTracker.Entries<BaseModel>())
             {
@@ -48,7 +56,13 @@ namespace KnoKoFin.Infrastructure.Persistence
                         break;
                 }
             }
-            return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(KnoKoFinContext).Assembly);
         }
     }
 }

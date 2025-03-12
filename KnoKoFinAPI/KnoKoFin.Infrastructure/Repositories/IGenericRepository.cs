@@ -12,5 +12,6 @@ namespace KnoKoFin.Infrastructure.Repositories
         Task<T> CreateAsync(T entity, CancellationToken cancellationToken);
         Task<T> UpdateAsync(T entity, CancellationToken cancellationToken);
         Task DeleteAsync(long id, CancellationToken cancellationToken);
+        Task<bool> ExistsAsync(long id);
     }
 }
