@@ -1,5 +1,6 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
+using KnoKoFin.Domain.Entities.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
 {
     public class UpdateAddressCommandMapper : IUpdateAddressMapper
     {
-        public Address InputMap(Address address, UpdateAddressCommand updateAddress)
+        public Address UpdateAddressCommandToAddressMap(Address address, UpdateAddressCommand updateAddress)
         {
             address.Update(
                     updateAddress.City,
@@ -22,7 +23,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             return address;
         }
 
-        public UpdateAddressCommand OutputMap(Address address)
+        public UpdateAddressCommand AddressToUpdateAddressCommandMap(Address address)
         {
             return new UpdateAddressCommand()
             {
@@ -32,6 +33,35 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
                 PostCode = address.PostCode,
                 Street = address.Street,
             };
+        }
+
+        public CreateAddressCommand UpdateAddressCommandToCreateAddressCommandMap(UpdateAddressCommand addressCommand)
+        {
+            return new CreateAddressCommand()
+            {
+                City = addressCommand.City,
+                Country = addressCommand.Country,
+                PostCode = addressCommand.PostCode,
+                Street = addressCommand.Street,
+            };
+        }
+
+        public UpdateAddressCommand CreateAddressCommandToUpdateAddressCommandMap(CreateAddressCommand createAddress)
+        {
+            var address = new UpdateAddressCommand()
+            {
+                City = createAddress.City,
+                Country = createAddress.Country,
+                PostCode = createAddress.PostCode,
+                Street = createAddress.Street,
+            };
+
+            if (createAddress.Id.HasValue)
+            {
+                address.Id = createAddress.Id.Value;
+            }
+
+            return address;
         }
     }
 }

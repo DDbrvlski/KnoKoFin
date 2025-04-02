@@ -1,5 +1,5 @@
-﻿using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
-using KnoKoFin.Infrastructure.Repositories;
+﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Infrastructure.Common.Interfaces;
 
 namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses
 {

@@ -25,7 +25,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
             // Kod pocztowy
             RuleFor(x => x.PostCode)
                 .NotEmpty()
-               .Must((address, code) => PostCodeValidator.IsValidPostalCodeForCountry(code, address.Country))
+               .Must((address, code) => PostalCodeValidator.IsValidPostalCode(code, address.Country))
                .WithMessage("Kod pocztowy nie pasuje do kraju");
 
             // Kraj (np. z enum)

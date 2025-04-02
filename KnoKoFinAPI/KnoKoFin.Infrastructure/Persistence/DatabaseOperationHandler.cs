@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Infrastructure.Persistence.Exceptions;
+﻿using KnoKoFin.Infrastructure.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

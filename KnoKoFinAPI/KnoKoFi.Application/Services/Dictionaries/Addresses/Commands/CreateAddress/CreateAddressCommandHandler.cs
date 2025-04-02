@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress
 {
-    public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand, long>
+    public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand, CreateAddressCommand>
     {
         private readonly IAddressRepository _repository;
         private readonly CreateAddressMapper _mapper;
@@ -23,14 +23,14 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
             _logger = logger;
         }
 
-        public async Task<long> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
+        public async Task<CreateAddressCommand> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
         {
-            var entity = _mapper.Map(request);
+            var entity = _mapper.CreateAddressCommandToAddressMap(request);
 
             await _repository.CreateAsync(entity, cancellationToken);
 
             _logger.LogInformation($"Adres został pomyślnie utworzony: {0}", entity.Id);
-            return entity.Id;
+            return _mapper.AddressToCreateAddressCommandMap(entity);    
         }
 
     }

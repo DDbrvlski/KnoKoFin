@@ -1,8 +1,7 @@
-﻿using Azure.Core;
-using KnoKoFin.Infrastructure.Common.Helpers;
+﻿using KnoKoFin.Domain.Helpers;
+using KnoKoFin.Infrastructure.Common.Exceptions;
+using KnoKoFin.Infrastructure.Common.Interfaces;
 using KnoKoFin.Infrastructure.Persistence;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
-using KnoKoFin.Infrastructure.Persistence.Exceptions;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -25,6 +24,8 @@ namespace KnoKoFin.Infrastructure.Repositories
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         => await _dbSet.AnyAsync(predicate);
 
+        public IQueryable<T> GetAll()
+            => _dbSet.Where(x => x.IsActive);
         public async Task<IEnumerable<T>> GetAllAsync()
         => await _dbSet.Where(x => x.IsActive).ToListAsync();
 
@@ -43,21 +44,21 @@ namespace KnoKoFin.Infrastructure.Repositories
                 _logger.LogError(sqlEx, "Błąd SQL podczas dodawania wielu encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
                     typeof(T).Name, sqlEx.Number, sqlEx.Message);
 
-                throw new DatabaseOperationException($"Błąd SQL podczas dodawania wielu encji {typeof(T).Name}.", sqlEx);
+                throw new DatabaseOperationException($"Błąd SQL podczas dodawania wielu encji {typeof(T).Name}.");
             }
             catch (DbUpdateException ex)
             {
                 _logger.LogError(ex, "Błąd EF podczas dodawania wielu encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Błąd EF podczas dodawania wielu encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Błąd EF podczas dodawania wielu encji {typeof(T).Name}.");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Nieoczekiwany błąd podczas dodawania wielu encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas dodawania wielu encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas dodawania wielu encji {typeof(T).Name}.");
             }
         }
         public async Task<T> CreateAsync(T entity, CancellationToken cancellationToken)
@@ -73,21 +74,21 @@ namespace KnoKoFin.Infrastructure.Repositories
                 _logger.LogError(sqlEx, "Błąd SQL podczas dodawania encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
                     typeof(T).Name, sqlEx.Number, sqlEx.Message);
 
-                throw new DatabaseOperationException($"Błąd SQL podczas dodawania encji {typeof(T).Name}.", sqlEx);
+                throw new DatabaseOperationException($"Błąd SQL podczas dodawania encji {typeof(T).Name}.");
             }
             catch (DbUpdateException ex)
             {
                 _logger.LogError(ex, "Błąd EF podczas dodawania encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Błąd EF podczas dodawania encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Błąd EF podczas dodawania encji {typeof(T).Name}.");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Nieoczekiwany błąd podczas dodawania encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas dodawania encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas dodawania encji {typeof(T).Name}.");
             }
         }
 
@@ -105,21 +106,21 @@ namespace KnoKoFin.Infrastructure.Repositories
                 _logger.LogError(sqlEx, "Błąd SQL podczas aktualizacji encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
                     typeof(T).Name, sqlEx.Number, sqlEx.Message);
 
-                throw new DatabaseOperationException($"Błąd SQL podczas aktualizacji encji {typeof(T).Name}.", sqlEx);
+                throw new DatabaseOperationException($"Błąd SQL podczas aktualizacji encji {typeof(T).Name}.");
             }
             catch (DbUpdateException ex)
             {
                 _logger.LogError(ex, "Błąd EF podczas aktualizacji encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Błąd EF podczas aktualizacji encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Błąd EF podczas aktualizacji encji {typeof(T).Name}.");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Nieoczekiwany błąd podczas aktualizacji encji {EntityName}. Szczegóły: {ErrorMessage}",
                     typeof(T).Name, ex.Message);
 
-                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas aktualizacji encji {typeof(T).Name}.", ex);
+                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas aktualizacji encji {typeof(T).Name}.");
             }
         }
 
@@ -145,7 +146,7 @@ namespace KnoKoFin.Infrastructure.Repositories
                 _logger.LogError(sqlEx, "Błąd SQL podczas usuwania encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
                     typeof(T).Name, sqlEx.Number, sqlEx.Message);
 
-                throw new DatabaseOperationException($"Błąd SQL podczas usuwania encji {typeof(T).Name}.", sqlEx);
+                throw new DatabaseOperationException($"Błąd SQL podczas usuwania encji {typeof(T).Name}.");
             }
         }
 

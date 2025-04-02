@@ -2,8 +2,7 @@
 using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
 using KnoKoFin.Application.DTOs.Dictionaries.Addresses;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressList;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
 using MediatR;
 using Microsoft.Extensions.Logging;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressList
+namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails
 {
     public class AddressDetailsDto
     {

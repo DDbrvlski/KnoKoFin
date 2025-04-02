@@ -1,14 +1,9 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress
 {
@@ -34,13 +29,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             if (entity != null)
             {
                 //Mapowanie pól z obiektu UpdateAddressCommand - request do obiektu Address entity
-                var newAddress = _mapper.Map(entity, request);
+                var newAddress = _mapper.UpdateAddressCommandToAddressMap(entity, request);
                 //Aktualizacja zmapowanego obiektu
                 var updatedAddress = await _addressRepository.UpdateAsync(newAddress, cancellationToken);
 
                 _logger.LogInformation("Adres został pomyślnie zmodyfikowany: {Id}", entity.Id);
                 //Zwrot zaktualizowanego obiektu encji
-                return _mapper.Map(updatedAddress);
+                return _mapper.AddressToUpdateAddressCommandMap(updatedAddress);
             }
             else
             {

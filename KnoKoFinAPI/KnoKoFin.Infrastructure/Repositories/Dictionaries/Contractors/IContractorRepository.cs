@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Infrastructure.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Contractors
 {
     public interface IContractorRepository : IGenericRepository<Contractor>
     {
+        Task<GetContractorAddressIdDto?> GetContractorAddressId(long contractorId);
     }
 }

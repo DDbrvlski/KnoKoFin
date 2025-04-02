@@ -22,4 +22,8 @@
     <Folder Include="Repositories\Invoices\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KnoKoFi.Domain\KnoKoFin.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

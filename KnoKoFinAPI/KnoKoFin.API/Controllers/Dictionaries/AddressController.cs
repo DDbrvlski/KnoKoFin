@@ -2,7 +2,6 @@
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.DeleteAddress;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KnoKoFin.API.Controllers.Dictionaries

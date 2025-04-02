@@ -1,5 +1,5 @@
-﻿using KnoKoFin.Infrastructure.Persistence;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

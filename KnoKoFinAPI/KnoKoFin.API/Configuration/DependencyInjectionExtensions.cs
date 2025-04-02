@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using KnoKoFin.Application.Common.Behaviours;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
-using KnoKoFin.Infrastructure.Common.Helpers;
+using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Infrastructure.Common.Interfaces;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
 using MediatR;

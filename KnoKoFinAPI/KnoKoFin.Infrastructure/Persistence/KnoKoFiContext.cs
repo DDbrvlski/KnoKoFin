@@ -1,9 +1,8 @@
-﻿
-using KnoKoFin.Infrastructure.Common.Helpers;
+﻿using KnoKoFin.Domain.Entities.Billings;
+using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Entities.Invoices;
+using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Infrastructure.Common.Interfaces;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Billings;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Invoices;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,13 +25,13 @@ namespace KnoKoFin.Infrastructure.Persistence
         public DbSet<RevenuePosition> RevenuePositions { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpensePosition> ExpensePositions { get; set; }
-        public DbSet<Configurations.Billings.Service> BillingServices { get; set; }
-        public DbSet<Configurations.Dictionaries.Service> DictionaryServices { get; set; }
+        public DbSet<Domain.Entities.Billings.Service> BillingServices { get; set; }
+        public DbSet<Domain.Entities.Dictionaries.Service> DictionaryServices { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceMetadata> InvoiceMetadata { get; set; }
-        public DbSet<Configurations.Dictionaries.Contractor> DictionaryContractors { get; set; }
-        public DbSet<Configurations.Invoices.Contractor> InvoiceContractors { get; set; }
+        public DbSet<Domain.Entities.Dictionaries.Contractor> DictionaryContractors { get; set; }
+        public DbSet<Domain.Entities.Invoices.Contractor> InvoiceContractors { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
 
