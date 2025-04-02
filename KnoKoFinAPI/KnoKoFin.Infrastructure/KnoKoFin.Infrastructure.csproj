@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KnoKoFi.Application\KnoKoFin.Application.csproj" />
     <ProjectReference Include="..\KnoKoFi.Domain\KnoKoFin.Domain.csproj" />
   </ItemGroup>
 

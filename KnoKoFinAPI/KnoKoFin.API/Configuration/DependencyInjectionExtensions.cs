@@ -2,8 +2,8 @@
 using KnoKoFin.Application.Common.Behaviours;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
 using KnoKoFin.Domain.Helpers;
-using KnoKoFin.Infrastructure.Common.Interfaces;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
+using KnoKoFin.Domain.Interfaces;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;

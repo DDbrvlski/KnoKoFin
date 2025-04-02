@@ -26,6 +26,7 @@ namespace KnoKoFin.Infrastructure.Repositories
 
         public IQueryable<T> GetAll()
             => _dbSet.Where(x => x.IsActive);
+
         public async Task<IEnumerable<T>> GetAllAsync()
         => await _dbSet.Where(x => x.IsActive).ToListAsync();
 

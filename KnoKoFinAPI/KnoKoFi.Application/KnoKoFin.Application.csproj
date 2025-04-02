@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KnoKoFi.Domain\KnoKoFin.Domain.csproj" />
-    <ProjectReference Include="..\KnoKoFin.Infrastructure\KnoKoFin.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

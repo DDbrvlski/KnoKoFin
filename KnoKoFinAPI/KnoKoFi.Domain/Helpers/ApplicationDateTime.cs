@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Infrastructure.Common.Interfaces;
+﻿using KnoKoFin.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

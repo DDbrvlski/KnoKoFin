@@ -1,6 +1,5 @@
-﻿using KnoKoFin.Infrastructure.Common.Interfaces;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries.Contractors;
+﻿using KnoKoFin.Domain.Interfaces;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;

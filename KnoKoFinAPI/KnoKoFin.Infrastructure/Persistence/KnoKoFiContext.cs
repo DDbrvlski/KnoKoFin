@@ -2,7 +2,7 @@
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Entities.Invoices;
 using KnoKoFin.Domain.Helpers;
-using KnoKoFin.Infrastructure.Common.Interfaces;
+using KnoKoFin.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

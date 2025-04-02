@@ -1,6 +1,7 @@
 using KnoKoFin.Infrastructure.Persistence;
 using KnoKoFin.API.Configuration;
 using Microsoft.EntityFrameworkCore;
+using KnoKoFin.Infrastructure;
 
 namespace KnoKoFin.API
 {
@@ -16,7 +17,7 @@ namespace KnoKoFin.API
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddDbContext<KnoKoFinContext>();
+            builder.Services.AddInfrastructureServices();
             builder.Services.AddApplicationServices();
 
 

@@ -1,7 +1,7 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
 using KnoKoFin.Domain.Entities.Dictionaries;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

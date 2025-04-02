@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KnoKoFi.Application\KnoKoFin.Application.csproj" />
     <ProjectReference Include="..\KnoKoFi.Domain\KnoKoFin.Domain.csproj" />
+    <ProjectReference Include="..\KnoKoFin.Infrastructure\KnoKoFin.Infrastructure.csproj" />
     <ProjectReference Include="..\KnoKoFin.UnitTests\KnoKoFin.UnitTests.csproj" />
   </ItemGroup>
 

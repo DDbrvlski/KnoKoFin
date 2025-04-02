@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Infrastructure.Common.Interfaces
+namespace KnoKoFin.Domain.Interfaces
 {
     public interface IDateTime
     {

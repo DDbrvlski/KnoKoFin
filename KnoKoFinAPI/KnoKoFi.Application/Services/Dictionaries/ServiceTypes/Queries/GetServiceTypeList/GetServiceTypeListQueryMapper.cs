@@ -10,14 +10,6 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetSer
 {
     public static class GetServiceTypeListQueryMapper
     {
-        public static IQueryable<ServiceTypeDto> Map(this IQueryable<ServiceType> query)
-        {
-            return query.Select(serviceType => new ServiceTypeDto
-            {
-                Id = serviceType.Id,
-                Name = serviceType.Name,
-                Description = serviceType.Description
-            });
-        }
+        
     }
 }
