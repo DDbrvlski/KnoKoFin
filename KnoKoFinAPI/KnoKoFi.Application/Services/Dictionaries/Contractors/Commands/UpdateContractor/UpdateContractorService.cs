@@ -1,9 +1,10 @@
 ﻿using Azure.Core;
 using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Interfaces;
+using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;

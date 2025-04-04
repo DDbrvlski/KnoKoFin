@@ -13,10 +13,8 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
     {
         public void Configure(EntityTypeBuilder<Contractor> builder)
         {
-            // Tabela i schemat
             builder.ToTable("contractors", schema: "dictionaries");
 
-            // Kolumny
             builder.Property(c => c.ContractorType)
                 .IsRequired()
                 .HasColumnName("CONTRACTOR_TYPE")
@@ -87,7 +85,6 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
             builder.Property(c => c.AddressId)
                 .HasColumnName("ADDRESS_ID");
 
-            // Relacje
             builder.HasOne(c => c.Address)
                    .WithMany()
                    .HasForeignKey(c => c.AddressId);

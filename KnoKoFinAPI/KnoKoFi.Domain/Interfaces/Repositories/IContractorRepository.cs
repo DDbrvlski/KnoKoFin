@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Domain.Interfaces.Repositories
+namespace KnoKoFin.Application.Interfaces.Repositories
 {
     public interface IContractorRepository : IGenericRepository<Contractor>
     {
-        Task<GetContractorAddressIdDto?> GetContractorAddressId(long contractorId);
+        Task<long?> GetContractorAddressId(long contractorId);
     }
 }

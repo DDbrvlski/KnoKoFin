@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
-using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;

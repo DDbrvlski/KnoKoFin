@@ -1,13 +1,9 @@
-﻿using KnoKoFin.Domain.Entities.Dictionaries;
-using KnoKoFin.Domain.Shared.Dtos;
+﻿using KnoKoFin.Application.Interfaces.Repositories;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.ServiceTypes
 {

@@ -1,8 +1,10 @@
-﻿using KnoKoFin.Domain.Entities.Billings;
+﻿using KnoKoFin.Application.Interfaces;
+using KnoKoFin.Domain.Entities.Billings;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Entities.Invoices;
 using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Domain.Interfaces;
+using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -59,6 +61,12 @@ namespace KnoKoFin.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new AddressConfiguration());
+            modelBuilder.ApplyConfiguration(new ContractorConfiguration());
+            modelBuilder.ApplyConfiguration(new ServiceTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionTypeConfiguration());
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(KnoKoFinContext).Assembly);

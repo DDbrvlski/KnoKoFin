@@ -9,38 +9,61 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Domain.Entities.Dictionaries
 {
-    [Table("services", Schema = "dictionaries")]
     public class Service : BaseModel
     {
-        [MaxLength(255)]
-        [Column("NAME")]
         public string? Name { get; set; }
-
-        [MaxLength(255)]
-        [Column("DESCRIPTION")]
         public string? Description { get; set; }
-
-        [Required]
-        [Column("ARCHIVAL")]
         public bool Archival { get; set; } = false;
-
-        [Column("DISCOUNT", TypeName = "decimal(10,2)")]
         public decimal? Discount { get; set; }
-
-        [Column("NET_PRICE", TypeName = "decimal(10,2)")]
         public decimal? NetPrice { get; set; }
-
-        [Column("GROSS_PRICE", TypeName = "decimal(10,2)")]
         public decimal? GrossPrice { get; set; }
-
-        [Column("VAT", TypeName = "decimal(10,2)")]
         public decimal? Vat { get; set; }
-
-        [MaxLength(10)]
-        [Column("UNIT")]
         public string? Unit { get; set; }
-
-        [Column("QUANTITY")]
         public int? Quantity { get; set; }
+
+        private Service() { }
+
+        public static Service Create
+            (string name, 
+            string description, 
+            decimal? discount, 
+            decimal? netPrice, 
+            decimal? grossPrice, 
+            decimal? vat, 
+            string unit, 
+            int? quantity)
+        {
+            return new Service
+            {
+                Name = name,
+                Description = description,
+                Discount = discount,
+                NetPrice = netPrice,
+                GrossPrice = grossPrice,
+                Vat = vat,
+                Unit = unit,
+                Quantity = quantity
+            };
+        }
+
+        public void Update
+            (string name, 
+            string description, 
+            decimal? discount, 
+            decimal? netPrice, 
+            decimal? grossPrice, 
+            decimal? vat, 
+            string unit, 
+            int? quantity)
+        {
+            Name = name;
+            Description = description;
+            Discount = discount;
+            NetPrice = netPrice;
+            GrossPrice = grossPrice;
+            Vat = vat;
+            Unit = unit;
+            Quantity = quantity;
+        }
     }
 }

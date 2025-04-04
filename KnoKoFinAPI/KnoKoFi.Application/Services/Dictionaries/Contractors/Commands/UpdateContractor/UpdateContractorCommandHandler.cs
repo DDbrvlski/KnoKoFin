@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Interfaces;
 using KnoKoFin.Domain.Interfaces;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries.Contractors;
 using MediatR;

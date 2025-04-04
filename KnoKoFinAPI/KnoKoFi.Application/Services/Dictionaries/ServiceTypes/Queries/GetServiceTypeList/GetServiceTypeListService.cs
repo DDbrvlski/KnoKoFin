@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Application.Interfaces.Repositories;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList
 {

@@ -1,7 +1,7 @@
 ﻿using KnoKoFin.Domain.Helpers;
 using System.Linq.Expressions;
 
-namespace KnoKoFin.Domain.Interfaces.Repositories
+namespace KnoKoFin.Application.Interfaces.Repositories
 {
     public interface IGenericRepository<T> where T : BaseModel
     {

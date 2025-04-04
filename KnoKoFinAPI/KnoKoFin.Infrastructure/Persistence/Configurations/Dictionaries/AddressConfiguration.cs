@@ -13,10 +13,8 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
     {
         public void Configure(EntityTypeBuilder<Address> builder)
         {
-            // Tabela i schemat
             builder.ToTable("addresses", schema: "dictionaries");
 
-            // Kolumny i ich właściwości
             builder.Property(a => a.Street)
                 .IsRequired()
                 .HasColumnName("STREET")

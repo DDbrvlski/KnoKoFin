@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Domain.Entities.Dictionaries;
+﻿using KnoKoFin.Application.Interfaces.Repositories;
+using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -15,14 +16,9 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Contractors
         public ContractorRepository(KnoKoFinContext context, ILogger<GenericRepository<Contractor>> logger)
             : base(context, logger) { }
 
-        public async Task<GetContractorAddressIdDto?> GetContractorAddressId(long contractorId)
+        public async Task<long?> GetContractorAddressId(long contractorId)
         {
-            return await _dbSet.Where(x => x.Id == contractorId)
-                .Select(x => new GetContractorAddressIdDto()
-                {
-                    ContractorId = x.Id,
-                    AddressId = x.AddressId
-                }).FirstOrDefaultAsync();
+            return await _dbSet.Where(x => x.Id == contractorId).Select(x => x.AddressId).FirstOrDefaultAsync();
         }
     }
 }

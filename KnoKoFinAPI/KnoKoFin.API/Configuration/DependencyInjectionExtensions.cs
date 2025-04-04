@@ -1,9 +1,10 @@
 ﻿using FluentValidation;
 using KnoKoFin.Application.Common.Behaviours;
+using KnoKoFin.Application.Interfaces;
+using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
 using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
