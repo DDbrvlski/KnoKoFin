@@ -1,13 +1,9 @@
-﻿using KnoKoFin.Domain.Entities.Dictionaries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
+using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
 {
-    public class CreateServiceTypeCommandMapper
+    public class CreateServiceTypeCommandMapper : ICreateServiceTypeCommandMapper
     {
         public ServiceType Map(CreateServiceTypeCommand command)
         {
@@ -17,9 +13,9 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Creat
         {
             return new CreateServiceTypeDto()
             {
-                Id= serviceType.Id,
-                Name= serviceType.Name,
-                Description= serviceType.Description
+                Id = serviceType.Id,
+                Name = serviceType.Name,
+                Description = serviceType.Description
             };
         }
     }

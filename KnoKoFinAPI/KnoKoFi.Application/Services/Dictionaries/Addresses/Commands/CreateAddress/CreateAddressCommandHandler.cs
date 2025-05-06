@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Interfaces.Repositories;
+﻿using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -11,8 +11,8 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
         private readonly ILogger<CreateAddressCommandHandler> _logger;
 
         public CreateAddressCommandHandler
-            (IAddressRepository repository, 
-            CreateAddressMapper mapper, 
+            (IAddressRepository repository,
+            CreateAddressMapper mapper,
             ILogger<CreateAddressCommandHandler> logger)
         {
             _repository = repository;
@@ -27,7 +27,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
             await _repository.CreateAsync(entity, cancellationToken);
 
             _logger.LogInformation($"Adres został pomyślnie utworzony: {0}", entity.Id);
-            return _mapper.AddressToCreateAddressCommandMap(entity);    
+            return _mapper.AddressToCreateAddressCommandMap(entity);
         }
 
     }

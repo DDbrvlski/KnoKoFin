@@ -1,17 +1,9 @@
-﻿using Azure.Core;
-using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Interfaces;
-using KnoKoFin.Application.Interfaces.Repositories;
+﻿using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
-using MediatR;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
@@ -32,7 +24,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
             _logger = logger;
         }
 
-        public async Task<Contractor> UpdateContractorAsync(Contractor contractorToUpdate, UpdateContractorCommand updateContractorCommand, Address address, CancellationToken cancellationToken)
+        public async Task<DictionaryContractor> UpdateContractorAsync(DictionaryContractor contractorToUpdate, UpdateContractorCommand updateContractorCommand, Address address, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"Aktualizacja kontrahenta o ID {contractorToUpdate.Id}.");
 
@@ -58,7 +50,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
             return await _contractorRepository.UpdateAsync(contractorToUpdate, cancellationToken);
         }
 
-        public async Task<Address?> UpdateOrCreateAddressAsync(Contractor contractorToUpdate, UpdateAddressCommand? addressCommand, CancellationToken cancellationToken)
+        public async Task<Address?> UpdateOrCreateAddressAsync(DictionaryContractor contractorToUpdate, UpdateAddressCommand? addressCommand, CancellationToken cancellationToken)
         {
             if (contractorToUpdate.AddressId.HasValue)
             {
@@ -71,7 +63,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
 
         }
 
-        public async Task<Contractor> GetContractorById(long id)
+        public async Task<DictionaryContractor> GetContractorById(long id)
         {
             var contractor = await _contractorRepository.GetByIdAsync(id);
             if (contractor == null)

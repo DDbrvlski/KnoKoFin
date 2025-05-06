@@ -1,13 +1,7 @@
-﻿using KnoKoFin.Application.Interfaces;
-using KnoKoFin.Application.Interfaces.Repositories;
-using KnoKoFin.Domain.Interfaces;
+﻿using KnoKoFin.Domain.Interfaces;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.DeleteContractor
 {
@@ -34,11 +28,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Delete
         {
 
             var addressIdToDelete = await _contractorRepository.GetContractorAddressId(request.Id);
-            if (addressIdToDelete != null && request.Id == request.Id && addressIdToDelete != null)
+            if (addressIdToDelete != null && request.Id == addressIdToDelete.ContractorId && addressIdToDelete.AddressId != null)
             {
                 await _contractorRepository.DeleteAsync(request.Id, cancellationToken);
-                await _addressRepository.DeleteAsync((long)addressIdToDelete, cancellationToken);
+                await _addressRepository.DeleteAsync((long)addressIdToDelete.AddressId, cancellationToken);
             }
         }
-    } 
+    }
 }

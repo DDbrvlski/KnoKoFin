@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnoKoFin.API", "KnoKoFin.API.csproj", "{C13FC468-926A-4FE2-8E0B-943B57431F12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnoKoFin.UnitTests", "..\KnoKoFin.UnitTests\KnoKoFin.UnitTests.csproj", "{C9053F2D-24F7-4F73-8D45-AE6D7F1BA146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnoKoFin.Application.Tests", "..\KnoKoFin.UnitTests\KnoKoFin.Application.Tests.csproj", "{C9053F2D-24F7-4F73-8D45-AE6D7F1BA146}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnoKoFin.Application", "..\KnoKoFi.Application\KnoKoFin.Application.csproj", "{1E0503F7-9117-435E-8F0C-7A2B2C530CFB}"
 EndProject

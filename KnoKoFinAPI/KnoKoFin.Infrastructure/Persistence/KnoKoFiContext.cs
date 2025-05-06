@@ -1,16 +1,10 @@
-﻿using KnoKoFin.Application.Interfaces;
-using KnoKoFin.Domain.Entities.Billings;
+﻿using KnoKoFin.Domain.Entities.Billings;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Entities.Invoices;
 using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries;
+using KnoKoFin.Infrastructure.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Infrastructure.Persistence
 {
@@ -27,13 +21,13 @@ namespace KnoKoFin.Infrastructure.Persistence
         public DbSet<RevenuePosition> RevenuePositions { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpensePosition> ExpensePositions { get; set; }
-        public DbSet<Domain.Entities.Billings.Service> BillingServices { get; set; }
-        public DbSet<Domain.Entities.Dictionaries.Service> DictionaryServices { get; set; }
+        public DbSet<Domain.Entities.Billings.BillingService> BillingServices { get; set; }
+        public DbSet<Domain.Entities.Dictionaries.DictionaryService> DictionaryServices { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceMetadata> InvoiceMetadata { get; set; }
-        public DbSet<Domain.Entities.Dictionaries.Contractor> DictionaryContractors { get; set; }
-        public DbSet<Domain.Entities.Invoices.Contractor> InvoiceContractors { get; set; }
+        public DbSet<Domain.Entities.Dictionaries.DictionaryContractor> DictionaryContractors { get; set; }
+        public DbSet<Domain.Entities.Invoices.InvoiceContractor> InvoiceContractors { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
 
@@ -61,15 +55,15 @@ namespace KnoKoFin.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ServiceConfiguration());
-            modelBuilder.ApplyConfiguration(new AddressConfiguration());
-            modelBuilder.ApplyConfiguration(new ContractorConfiguration());
-            modelBuilder.ApplyConfiguration(new ServiceTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new TransactionTypeConfiguration());
-
             base.OnModelCreating(modelBuilder);
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes()
+            .SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(KnoKoFinContext).Assembly);
         }
+
     }
 }

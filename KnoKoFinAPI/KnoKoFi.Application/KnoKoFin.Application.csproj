@@ -16,8 +16,14 @@
     <Folder Include="Common\Interfaces\Billings\" />
     <Folder Include="Common\Interfaces\Invoices\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Services\Billings\" />
-    <Folder Include="Services\Invoices\" />
+    <Folder Include="Services\Billings\BillingService\Queries\" />
+    <Folder Include="Services\Billings\ExpensePosition\Queries\" />
+    <Folder Include="Services\Billings\Expense\Queries\" />
+    <Folder Include="Services\Billings\RevenuePosition\Queries\" />
+    <Folder Include="Services\Billings\Revenue\Queries\" />
+    <Folder Include="Services\Invoices\InvoiceContractor\Queries\" />
+    <Folder Include="Services\Invoices\InvoiceMetdata\Queries\" />
+    <Folder Include="Services\Invoices\Invoice\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

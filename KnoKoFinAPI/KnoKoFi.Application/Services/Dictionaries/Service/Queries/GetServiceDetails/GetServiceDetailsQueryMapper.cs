@@ -1,0 +1,6 @@
+﻿namespace KnoKoFin.Application.Services.Dictionaries.Service.Queries.GetServiceDetails
+{
+    internal class GetServiceDetailsQueryMapper
+    {
+    }
+}

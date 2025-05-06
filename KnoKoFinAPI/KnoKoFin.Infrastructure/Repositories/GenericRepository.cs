@@ -36,10 +36,6 @@ namespace KnoKoFin.Infrastructure.Repositories
         {
             try
             {
-                foreach (var entity in entities)
-                {
-                    entity.IsActive = true;
-                }
                 await _dbSet.AddRangeAsync(entities);
                 await _context.SaveChangesAsync(cancellationToken);
                 return entities;
@@ -70,7 +66,6 @@ namespace KnoKoFin.Infrastructure.Repositories
         {
             try
             {
-                entity.IsActive = true;
                 await _dbSet.AddAsync(entity);
                 await _context.SaveChangesAsync(cancellationToken);
                 return entity;

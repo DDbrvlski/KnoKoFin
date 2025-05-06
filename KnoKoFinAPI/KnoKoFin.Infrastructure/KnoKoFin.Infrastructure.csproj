@@ -18,8 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Persistence\Migrations\" />
-    <Folder Include="Repositories\Billings\" />
-    <Folder Include="Repositories\Invoices\" />
   </ItemGroup>
 
   <ItemGroup>

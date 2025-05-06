@@ -1,12 +1,12 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
-using KnoKoFin.Application.Interfaces.Repositories;
+
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList
 {
     public class GetServiceTypeListService : IGetServiceTypeListService
     {
-        private readonly IServiceTypeRepository _serviceTypeRepository;
-        public GetServiceTypeListService(IServiceTypeRepository serviceTypeRepository)
+        private readonly IServiceTypeQueryRepository _serviceTypeRepository;
+        public GetServiceTypeListService(IServiceTypeQueryRepository serviceTypeRepository)
         {
             _serviceTypeRepository = serviceTypeRepository;
         }

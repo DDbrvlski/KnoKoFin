@@ -1,16 +1,10 @@
 ﻿
 using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
-using KnoKoFin.Application.DTOs.Dictionaries.Addresses;
-using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails
 {
@@ -31,7 +25,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddres
         public async Task<AddressDetailsDto> Handle(GetAddressDetailsQuery request, CancellationToken cancellationToken)
         {
             var entity = await _addressRepository.GetByIdAsync(request.Id);
-            if(entity != null)
+            if (entity != null)
             {
                 return _mapper.Map(entity);
             }

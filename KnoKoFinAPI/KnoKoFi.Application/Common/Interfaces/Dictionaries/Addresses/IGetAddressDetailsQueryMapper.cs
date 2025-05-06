@@ -1,5 +1,4 @@
-﻿using KnoKoFin.Application.DTOs.Dictionaries.Addresses;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails;
+﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails;
 using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses

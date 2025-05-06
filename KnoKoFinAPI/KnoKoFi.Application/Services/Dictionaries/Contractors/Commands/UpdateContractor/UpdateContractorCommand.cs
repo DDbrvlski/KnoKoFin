@@ -1,11 +1,5 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
+﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {

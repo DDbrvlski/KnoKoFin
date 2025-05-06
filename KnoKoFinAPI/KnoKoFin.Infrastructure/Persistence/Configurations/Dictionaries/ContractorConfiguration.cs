@@ -1,17 +1,13 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
 {
-    public class ContractorConfiguration : IEntityTypeConfiguration<Contractor>
+    public class ContractorConfiguration : BaseModelConfiguration<DictionaryContractor>, IEntityTypeConfiguration<DictionaryContractor>
     {
-        public void Configure(EntityTypeBuilder<Contractor> builder)
+        public void Configure(EntityTypeBuilder<DictionaryContractor> builder)
         {
             builder.ToTable("contractors", schema: "dictionaries");
 
@@ -85,6 +81,7 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
             builder.Property(c => c.AddressId)
                 .HasColumnName("ADDRESS_ID");
 
+            // Relacje
             builder.HasOne(c => c.Address)
                    .WithMany()
                    .HasForeignKey(c => c.AddressId);

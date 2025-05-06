@@ -1,13 +1,6 @@
-﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Interfaces.Repositories;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
+﻿using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.DeleteAddress
 {

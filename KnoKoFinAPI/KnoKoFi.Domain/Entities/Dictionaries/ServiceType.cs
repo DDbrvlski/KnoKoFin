@@ -1,6 +1,4 @@
 ﻿using KnoKoFin.Domain.Helpers;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 namespace KnoKoFin.Domain.Entities.Dictionaries
 {
     public class ServiceType : BaseModel
@@ -8,7 +6,7 @@ namespace KnoKoFin.Domain.Entities.Dictionaries
         public string Name { get; set; }
         public string Description { get; set; }
 
-        private ServiceType() { }
+        public ServiceType() { }
 
         public static ServiceType Create(string name, string description)
         {

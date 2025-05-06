@@ -4,7 +4,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
 {
     public class CreateAddressCommand : IRequest<CreateAddressCommand>
     {
-        public long? Id {  get; set; }
+        public long? Id { get; set; }
         public string Street { get; set; }
         public string PostCode { get; set; }
         public string Country { get; set; }

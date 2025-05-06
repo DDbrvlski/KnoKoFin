@@ -1,19 +1,14 @@
 ﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Domain.Entities.Dictionaries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
     public class UpdateContractorCommandMapper
     {
-        public Contractor Map(UpdateContractorCommand updateContractor)
+        public DictionaryContractor Map(UpdateContractorCommand updateContractor)
         {
 
-            var contractor = Contractor.Create(
+            var contractor = DictionaryContractor.Create(
                 updateContractor.ContractorType,
                 updateContractor.Name,
                 updateContractor.FirstName,
@@ -36,7 +31,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
             return contractor;
         }
 
-        public UpdateContractorCommand Map(Contractor contractor)
+        public UpdateContractorCommand Map(DictionaryContractor contractor)
         {
             return new UpdateContractorCommand()
             {

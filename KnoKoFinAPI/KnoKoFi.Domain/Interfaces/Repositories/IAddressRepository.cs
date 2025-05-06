@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
 
-namespace KnoKoFin.Application.Interfaces.Repositories
+namespace KnoKoFin.Domain.Interfaces.Repositories
 {
     public interface IAddressRepository : IGenericRepository<Address>
     {

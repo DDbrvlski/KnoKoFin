@@ -1,14 +1,9 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Interfaces.Repositories
+namespace KnoKoFin.Domain.Interfaces.Repositories
 {
-    public interface IContractorRepository : IGenericRepository<Contractor>
+    public interface IContractorRepository : IGenericRepository<DictionaryContractor>
     {
-        Task<long?> GetContractorAddressId(long contractorId);
+        Task<GetContractorAddressIdDto?> GetContractorAddressId(long contractorId);
     }
 }

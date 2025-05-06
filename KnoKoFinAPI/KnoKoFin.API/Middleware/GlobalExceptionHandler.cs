@@ -1,8 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Xunit.Sdk;
 
 namespace KnoKoFin.API.Middleware
 {
@@ -16,7 +13,7 @@ namespace KnoKoFin.API.Middleware
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
             // Dopasowanie wyjątków do odpowiednich kodów statusu i wiadomości
-            (int statusCode, string errorMessage, object ? errors) = exception switch
+            (int statusCode, string errorMessage, object? errors) = exception switch
             {
                 ForbidException forbidException => (StatusCodes.Status403Forbidden, forbidException.Message, null),
                 BadRequestException badRequestException => (StatusCodes.Status400BadRequest, badRequestException.Message, null),

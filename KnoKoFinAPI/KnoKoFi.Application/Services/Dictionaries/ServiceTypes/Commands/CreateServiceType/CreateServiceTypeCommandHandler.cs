@@ -1,11 +1,7 @@
-﻿using KnoKoFin.Application.Interfaces.Repositories;
+﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
 {
@@ -13,11 +9,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Creat
     {
         private readonly ILogger<CreateServiceTypeCommandHandler> _logger;
         private readonly IServiceTypeRepository _serviceTypeRepository;
-        private readonly CreateServiceTypeCommandMapper _mapper;
+        private readonly ICreateServiceTypeCommandMapper _mapper;
         public CreateServiceTypeCommandHandler
             (ILogger<CreateServiceTypeCommandHandler> logger,
             IServiceTypeRepository serviceTypeRepository,
-            CreateServiceTypeCommandMapper mapper)
+            ICreateServiceTypeCommandMapper mapper)
         {
             _logger = logger;
             _serviceTypeRepository = serviceTypeRepository;

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Shared\" />
+    <Folder Include="Shared\Dtos\" />
   </ItemGroup>
 
 </Project>

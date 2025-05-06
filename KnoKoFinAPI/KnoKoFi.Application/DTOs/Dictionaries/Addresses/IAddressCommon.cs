@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KnoKoFin.Application.DTOs.Dictionaries.Addresses
+﻿namespace KnoKoFin.Application.DTOs.Dictionaries.Addresses
 {
     public class IAddressCommon
     {

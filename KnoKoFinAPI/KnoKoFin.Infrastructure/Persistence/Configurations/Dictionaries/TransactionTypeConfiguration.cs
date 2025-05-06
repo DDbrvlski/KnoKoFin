@@ -1,26 +1,22 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
 {
-    public class TransactionTypeConfiguration : IEntityTypeConfiguration<TransactionType>
+    public class TransactionTypeConfiguration : BaseModelConfiguration<TransactionType>, IEntityTypeConfiguration<TransactionType>
     {
         public void Configure(EntityTypeBuilder<TransactionType> builder)
         {
             builder.ToTable("transaction_type", "dictionaries");
 
-            builder.Property(x => x.Name)
+            builder.Property(tt => tt.Name)
                 .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnName("NAME");
 
-            builder.Property(x => x.Type)
+            builder.Property(tt => tt.Type)
                 .HasColumnName("TYPE");
         }
     }

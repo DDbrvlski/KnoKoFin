@@ -1,8 +1,7 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Interfaces;
-using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -54,7 +53,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackTransactionAsync();
-                throw new CreateFailureException(nameof(Contractor), contractor, $"Wystąpił błąd podczas tworzenia: {ex.Message}");
+                throw new CreateFailureException(nameof(DictionaryContractor), contractor, $"Wystąpił błąd podczas tworzenia: {ex.Message}");
             }
         }
     }

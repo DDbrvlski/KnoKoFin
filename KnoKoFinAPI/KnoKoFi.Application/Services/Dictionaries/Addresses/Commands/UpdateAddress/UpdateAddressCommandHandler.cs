@@ -1,7 +1,7 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Application.Common.Interfaces.Dictionaries.Addresses;
-using KnoKoFin.Application.Interfaces.Repositories;
 using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -13,7 +13,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
         private readonly ILogger<UpdateAddressCommandHandler> _logger;
         private readonly IUpdateAddressMapper _mapper;
         public UpdateAddressCommandHandler
-            (IAddressRepository addressRepository, 
+            (IAddressRepository addressRepository,
             ILogger<UpdateAddressCommandHandler> logger,
             IUpdateAddressMapper mapper)
         {

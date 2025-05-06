@@ -5,8 +5,8 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
 {
     public interface IUpdateContractorService
     {
-        Task<Contractor> UpdateContractorAsync(Contractor contractorToUpdate, UpdateContractorCommand updateContractorCommand, Address address, CancellationToken cancellationToken);
-        Task<Address?> UpdateOrCreateAddressAsync(Contractor contractorToUpdate, UpdateAddressCommand? addressCommand, CancellationToken cancellationToken);
-        Task<Contractor> GetContractorById(long id);
+        Task<DictionaryContractor> UpdateContractorAsync(DictionaryContractor contractorToUpdate, UpdateContractorCommand updateContractorCommand, Address address, CancellationToken cancellationToken);
+        Task<Address?> UpdateOrCreateAddressAsync(DictionaryContractor contractorToUpdate, UpdateAddressCommand? addressCommand, CancellationToken cancellationToken);
+        Task<DictionaryContractor> GetContractorById(long id);
     }
 }

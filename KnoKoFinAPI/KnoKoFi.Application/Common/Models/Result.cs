@@ -1,12 +1,4 @@
-﻿using FluentValidation.Results;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KnoKoFin.Application.Common.Models
+﻿namespace KnoKoFin.Application.Common.Models
 {
     public class Result
     {
