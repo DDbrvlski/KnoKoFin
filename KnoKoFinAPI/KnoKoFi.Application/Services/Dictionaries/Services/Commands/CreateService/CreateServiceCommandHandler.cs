@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Interfaces.Repositories;
+﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateService
 {
-    public class CreateServiceCommandHandler : IRequestHandler<CreateServiceCommand, CreateServiceDto>
+    public class CreateServiceCommandHandler : IRequestHandler<CreateServiceCommand, long>
     {
-        private readonly IServiceRepository _serviceRepository;
+        private readonly IDictionaryServiceRepository _serviceRepository;
         private readonly ILogger<CreateServiceCommandHandler> _logger;
         private readonly CreateServiceCommandMapper _mapper;
 
         public CreateServiceCommandHandler
-            (IServiceRepository serviceRepository,
+            (IDictionaryServiceRepository serviceRepository,
             ILogger<CreateServiceCommandHandler> logger,
             CreateServiceCommandMapper mapper)
         {
@@ -25,12 +25,12 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateSer
             _mapper = mapper;
         }
 
-        public async Task<CreateServiceDto> Handle(CreateServiceCommand request, CancellationToken cancellationToken)
+        public async Task<long> Handle(CreateServiceCommand request, CancellationToken cancellationToken)
         {
             var serviceToAdd = _mapper.Map(request);
             var newService = await _serviceRepository.CreateAsync(serviceToAdd, cancellationToken);
 
-            return _mapper.Map(newService);
+            return newService.Id;
         }
     }
 }

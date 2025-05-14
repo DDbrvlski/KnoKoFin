@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceDetails
 {
-    internal class GetServiceDetailsQuery
+    public class GetServiceDetailsQuery : IRequest<ServiceDetailsDto>
     {
+        public long Id { get; set; }
     }
 }

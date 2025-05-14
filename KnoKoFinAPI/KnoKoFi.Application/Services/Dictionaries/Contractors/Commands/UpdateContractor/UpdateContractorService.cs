@@ -2,20 +2,20 @@
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using Microsoft.Extensions.Logging;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
     public class UpdateContractorService : IUpdateContractorService
     {
-        private readonly IContractorRepository _contractorRepository;
+        private readonly IDictionaryContractorRepository _contractorRepository;
         private readonly IAddressRepository _addressRepository;
         private readonly ILogger<UpdateContractorService> _logger;
 
         public UpdateContractorService
             (ILogger<UpdateContractorService> logger,
-            IContractorRepository contractorRepository,
+            IDictionaryContractorRepository contractorRepository,
             IAddressRepository addressRepository,
             IUnitOfWork unitOfWork)
         {
@@ -63,9 +63,9 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
 
         }
 
-        public async Task<DictionaryContractor> GetContractorById(long id)
+        public async Task<DictionaryContractor> GetContractorById(long id, CancellationToken cancellationToken)
         {
-            var contractor = await _contractorRepository.GetByIdAsync(id);
+            var contractor = await _contractorRepository.GetByIdAsync(id, cancellationToken);
             if (contractor == null)
             {
                 _logger.LogError($"Nie znaleziono kontrahenta o ID {id}.");
@@ -77,7 +77,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
         private async Task<Address> UpdateAddressAsync(long addressId, UpdateAddressCommand addressCommand, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"Aktualizacja adresu o ID {addressId}.");
-            var addressToUpdate = await _addressRepository.GetByIdAsync(addressId);
+            var addressToUpdate = await _addressRepository.GetByIdAsync(addressId, cancellationToken);
             if (addressToUpdate == null)
             {
                 throw new UpdateFailureException(nameof(Address), addressId, "Adres nie został znaleziony.");

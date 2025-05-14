@@ -2,7 +2,7 @@
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorList
 {
-    public class GetContractorListQuery : IRequest
+    public class GetContractorListQuery : IRequest<ContractorList>
     {
     }
 }

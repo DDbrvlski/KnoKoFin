@@ -1,6 +1,13 @@
-﻿namespace KnoKoFin.Infrastructure.Repositories.Billings
+﻿using KnoKoFin.Domain.Entities.Billings;
+using KnoKoFin.Infrastructure.Persistence;
+using Microsoft.Extensions.Logging;
+
+namespace KnoKoFin.Infrastructure.Repositories.Billings
 {
-    internal class RevenueRepository
+    public class RevenueRepository : GenericRepository<Revenue>
     {
+        public RevenueRepository(KnoKoFinContext context, ILogger<GenericRepository<Revenue>> logger) : base(context, logger)
+        {
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Domain.Interfaces.Repositories;
+﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

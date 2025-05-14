@@ -9,9 +9,9 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateSer
 {
     public class CreateServiceCommandMapper
     {
-        public Service Map(CreateServiceCommand command)
+        public DictionaryService Map(CreateServiceCommand command)
         {
-            return Service.Create
+            return DictionaryService.Create
                 (command.Name,
                 command.Description,
                 command.Discount,
@@ -22,20 +22,20 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateSer
                 command.Quantity);
         }
 
-        public CreateServiceDto Map(Service service)
-        {
-            return new CreateServiceDto()
-            {
-                Id = service.Id,
-                Name = service.Name,
-                Description = service.Description,
-                Discount = service.Discount,
-                NetPrice = service.NetPrice,
-                GrossPrice = service.GrossPrice,
-                Vat = service.Vat,
-                Unit = service.Unit,
-                Quantity = service.Quantity
-            };
-        }
+        //public CreateServiceDto Map(DictionaryService service)
+        //{
+        //    return new CreateServiceDto()
+        //    {
+        //        Id = service.Id,
+        //        Name = service.Name,
+        //        Description = service.Description,
+        //        Discount = service.Discount,
+        //        NetPrice = service.NetPrice,
+        //        GrossPrice = service.GrossPrice,
+        //        Vat = service.Vat,
+        //        Unit = service.Unit,
+        //        Quantity = service.Quantity
+        //    };
+        //}
     }
 }

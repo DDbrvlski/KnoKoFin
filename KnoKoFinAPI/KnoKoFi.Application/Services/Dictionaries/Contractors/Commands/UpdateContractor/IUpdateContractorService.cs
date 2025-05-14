@@ -7,6 +7,6 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
     {
         Task<DictionaryContractor> UpdateContractorAsync(DictionaryContractor contractorToUpdate, UpdateContractorCommand updateContractorCommand, Address address, CancellationToken cancellationToken);
         Task<Address?> UpdateOrCreateAddressAsync(DictionaryContractor contractorToUpdate, UpdateAddressCommand? addressCommand, CancellationToken cancellationToken);
-        Task<DictionaryContractor> GetContractorById(long id);
+        Task<DictionaryContractor> GetContractorById(long id, CancellationToken cancellationToken);
     }
 }

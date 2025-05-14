@@ -3,9 +3,9 @@ using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails
 {
-    public class GetAddressDetailsQueryMapper : IGetAddressDetailsQueryMapper
+    public static class GetAddressDetailsQueryMapper
     {
-        public AddressDetailsDto Map(Address address)
+        public static AddressDetailsDto Map(Address address)
         {
             return new AddressDetailsDto()
             {

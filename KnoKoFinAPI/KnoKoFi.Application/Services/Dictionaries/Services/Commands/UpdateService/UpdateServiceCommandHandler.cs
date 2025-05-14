@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,13 +13,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
     public class UpdateServiceCommandHandler : IRequestHandler<UpdateServiceCommand, UpdateServiceDto>
     {
         private readonly ILogger<UpdateServiceCommandHandler> _logger;
-        private readonly IServiceRepository _serviceRepository;
+        private readonly IDictionaryServiceRepository _serviceRepository;
         private readonly UpdateServiceCommandMapper _mapper;
 
         public UpdateServiceCommandHandler
             (UpdateServiceCommandMapper mapper,
             ILogger<UpdateServiceCommandHandler> logger,
-            IServiceRepository serviceRepository)
+            IDictionaryServiceRepository serviceRepository)
         {
             _mapper = mapper;
             _logger = logger;
@@ -27,7 +27,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
         }
         public async Task<UpdateServiceDto> Handle(UpdateServiceCommand request, CancellationToken cancellationToken)
         {
-            var serviceToUpdate = await _serviceRepository.GetByIdAsync(request.Id);
+            var serviceToUpdate = await _serviceRepository.GetByIdAsync(request.Id, cancellationToken);
             if (serviceToUpdate == null) 
             {
                 throw new UpdateFailureException(nameof(serviceToUpdate), request.Id, "Nie znaleziono podanego serwisu do aktualizacji");

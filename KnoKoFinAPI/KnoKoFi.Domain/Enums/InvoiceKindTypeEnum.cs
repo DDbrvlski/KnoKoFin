@@ -1,9 +1,16 @@
-﻿namespace KnoKoFin.Domain.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace KnoKoFin.Domain.Enums
 {
     public enum InvoiceKindTypeEnum
     {
-        Faktura,
-        Faktura_Proforma,
-        Nota_Korygująca
+        [Display(Name = "Faktura")]
+        Invoice,
+
+        [Display(Name = "Faktura Proforma")]
+        ProformaInvoice,
+
+        [Display(Name = "Nota korygująca")]
+        CorrectionNote
     }
 }

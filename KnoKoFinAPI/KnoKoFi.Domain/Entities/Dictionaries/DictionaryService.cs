@@ -13,5 +13,34 @@ namespace KnoKoFin.Domain.Entities.Dictionaries
         public decimal? Vat { get; set; }
         public string? Unit { get; set; }
         public int? Quantity { get; set; }
+        public int? ServiceTypeId { get; set; }
+
+        public ServiceType? ServiceType { get; set; }
+
+        public void Update(string? name, string? description, decimal? discount, decimal? netPrice, decimal? grossPrice, decimal? vat, string? unit, int? quantity)
+        {
+            Name = name;
+            Description = description;
+            Discount = discount;
+            NetPrice = netPrice;
+            GrossPrice = grossPrice;
+            Vat = vat;
+            Unit = unit;
+            Quantity = quantity;
+        }
+        public static DictionaryService Create(string? name, string? description, decimal? discount, decimal? netPrice, decimal? grossPrice, decimal? vat, string? unit, int? quantity)
+        {
+            return new DictionaryService
+            {
+                Name = name,
+                Description = description,
+                Discount = discount,
+                NetPrice = netPrice,
+                GrossPrice = grossPrice,
+                Vat = vat,
+                Unit = unit,
+                Quantity = quantity,
+            };
+        }
     }
 }

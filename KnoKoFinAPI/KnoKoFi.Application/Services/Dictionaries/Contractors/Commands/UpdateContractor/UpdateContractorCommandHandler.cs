@@ -9,32 +9,29 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<UpdateContractorCommandHandler> _logger;
-        private readonly UpdateContractorCommandMapper _mapper;
         private readonly IMediator _mediator;
         private readonly IUpdateContractorService _service;
         public UpdateContractorCommandHandler
             (IUnitOfWork unitOfWork,
             IUpdateContractorService service,
             ILogger<UpdateContractorCommandHandler> logger,
-            UpdateContractorCommandMapper mapper,
             IMediator mediator)
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
             _mediator = mediator;
             _service = service;
-            _mapper = mapper;
         }
 
         public async Task<UpdateContractorCommand> Handle(UpdateContractorCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"Rozpoczęcie aktualizacji kontrahenta o ID {request.ContractorId}.");
+            _logger.LogInformation($"Rozpoczęcie aktualizacji kontrahenta o ID {request.Id}.");
             try
             {
 
                 await _unitOfWork.BeginTransactionAsync();
 
-                var contractorToUpdate = await _service.GetContractorById(request.ContractorId);
+                var contractorToUpdate = await _service.GetContractorById(request.Id, cancellationToken);
 
                 var updatedAddress = await _service.UpdateOrCreateAddressAsync(contractorToUpdate, request.Address, cancellationToken);
                 _logger.LogInformation($"Zaktualizowano lub utworzono adres o ID {updatedAddress.Id}.");
@@ -45,13 +42,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
                 await _unitOfWork.CommitTransactionAsync();
 
                 _logger.LogInformation($"Pomyślnie zmodyfikowano kontrahenta o ID {updatedContractor.Id}.");
-                return _mapper.Map(updatedContractor);
+                return UpdateContractorCommandMapper.Map(updatedContractor);
             }
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackTransactionAsync();
-                _logger.LogError($"Wystąpił błąd podczas modyfikowania kontrahenta o ID {request.ContractorId}", ex.Message);
-                throw new UpdateFailureException(nameof(request), request.ContractorId, "Wystąpił błąd podczas aktualizacji kontrahenta.");
+                _logger.LogError($"Wystąpił błąd podczas modyfikowania kontrahenta o ID {request.Id}", ex.Message);
+                throw new UpdateFailureException(nameof(request), request.Id, "Wystąpił błąd podczas aktualizacji kontrahenta.");
             }
         }
     }

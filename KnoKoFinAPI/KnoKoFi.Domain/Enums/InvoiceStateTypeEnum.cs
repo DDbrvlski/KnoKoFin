@@ -1,10 +1,19 @@
-﻿namespace KnoKoFin.Domain.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace KnoKoFin.Domain.Enums
 {
     public enum InvoiceStateTypeEnum
     {
-        Wystawiona,
-        Opłacona,
-        Częściowo_opłacona,
-        Wysłana
+        [Display(Name = "Wystawiona")]
+        Issued,
+
+        [Display(Name = "Opłacona")]
+        Paid,
+
+        [Display(Name = "Częściowo opłacona")]
+        PartiallyPaid,
+
+        [Display(Name = "Wysłana")]
+        Sent
     }
 }

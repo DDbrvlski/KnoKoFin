@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Enums;
 using KnoKoFin.Domain.Helpers;
 
 namespace KnoKoFin.Domain.Entities.Billings
@@ -13,7 +14,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public long CategoryId { get; set; }
         public long? ContractorId { get; set; }
 
-        public virtual TransactionType Category { get; set; }
+        public virtual TransactionTypeEnum TransactionType { get; set; }
         public virtual DictionaryContractor? Contractor { get; set; }
         public virtual ICollection<ExpensePosition> Positions { get; set; }
     }

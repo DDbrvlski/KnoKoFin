@@ -3,9 +3,9 @@ using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
-    public class UpdateContractorCommandMapper
+    public static class UpdateContractorCommandMapper
     {
-        public DictionaryContractor Map(UpdateContractorCommand updateContractor)
+        public static DictionaryContractor Map(UpdateContractorCommand updateContractor)
         {
 
             var contractor = DictionaryContractor.Create(
@@ -31,11 +31,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
             return contractor;
         }
 
-        public UpdateContractorCommand Map(DictionaryContractor contractor)
+        public static UpdateContractorCommand Map(DictionaryContractor contractor)
         {
             return new UpdateContractorCommand()
             {
-                ContractorId = contractor.Id,
+                Id = contractor.Id,
                 FirstName = contractor.FirstName,
                 LastName = contractor.LastName,
                 Description = contractor.Description,

@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Enums;
 using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -18,6 +19,12 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
 
             builder.Property(tt => tt.Type)
                 .HasColumnName("TYPE");
+
+            builder.Property(t => t.Type)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (TransactionTypeEnum)Enum.Parse(typeof(TransactionTypeEnum), v)
+                );
         }
     }
 }

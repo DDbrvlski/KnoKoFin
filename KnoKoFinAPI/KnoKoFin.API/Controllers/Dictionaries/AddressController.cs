@@ -55,9 +55,9 @@ namespace KnoKoFin.API.Controllers.Dictionaries
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<IActionResult> Delete([FromBody] DeleteAddressCommand command)
+        public async Task<IActionResult> Delete(long id)
         {
-            await Mediator.Send(command);
+            await Mediator.Send(new DeleteAddressCommand { Id = id });
 
             return NoContent();
         }

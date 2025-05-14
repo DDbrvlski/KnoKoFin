@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -10,13 +10,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Delete
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<DeleteContractorCommandHandler> _logger;
         private readonly IAddressRepository _addressRepository;
-        private readonly IContractorRepository _contractorRepository;
+        private readonly IDictionaryContractorRepository _contractorRepository;
 
         public DeleteContractorCommandHandler
             (IUnitOfWork unitOfWork,
             ILogger<DeleteContractorCommandHandler> logger,
             IAddressRepository addressRepository,
-            IContractorRepository contractorRepository)
+            IDictionaryContractorRepository contractorRepository)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;

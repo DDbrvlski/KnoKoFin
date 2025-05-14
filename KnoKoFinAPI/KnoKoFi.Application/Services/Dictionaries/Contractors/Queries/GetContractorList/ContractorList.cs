@@ -1,6 +1,7 @@
 ﻿namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorList
 {
-    internal class ContractorList
+    public class ContractorList
     {
+        public List<ContractorDto> Contractors { get; set; }
     }
 }

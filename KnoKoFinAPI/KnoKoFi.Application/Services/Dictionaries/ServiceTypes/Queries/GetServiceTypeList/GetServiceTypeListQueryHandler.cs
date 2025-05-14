@@ -1,19 +1,20 @@
-﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
+﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList
 {
     public class GetServiceTypeListQueryHandler : IRequestHandler<GetServiceTypeListQuery, ServiceTypeList>
     {
-        private readonly IGetServiceTypeListService _serviceTypeListService;
-        public GetServiceTypeListQueryHandler(IGetServiceTypeListService getServiceTypeListService)
+        private readonly IServiceTypeRepository _serviceTypeRepository;
+        public GetServiceTypeListQueryHandler(IServiceTypeRepository serviceTypeRepository)
         {
-            _serviceTypeListService = getServiceTypeListService;
+            _serviceTypeRepository = serviceTypeRepository;
         }
 
         public async Task<ServiceTypeList> Handle(GetServiceTypeListQuery request, CancellationToken cancellationToken)
         {
-            return await _serviceTypeListService.GetAllServices();
+            var query = _serviceTypeRepository.GetAll();
+            return await GetServiceTypeListQueryMapper.GetServiceTypeList(query, cancellationToken);
         }
     }
 }

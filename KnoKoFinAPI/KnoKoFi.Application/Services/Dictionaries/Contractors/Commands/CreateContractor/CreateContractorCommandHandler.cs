@@ -1,7 +1,7 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -10,20 +10,17 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
     public class CreateContractorCommandHandler : IRequestHandler<CreateContractorCommand, long>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly CreateContractorCommandMapper _mapper;
         private readonly ILogger<CreateContractorCommandHandler> _logger;
         private readonly IAddressRepository _addressRepository;
-        private readonly IContractorRepository _contractorRepository;
+        private readonly IDictionaryContractorRepository _contractorRepository;
         private readonly IMediator _mediator;
         public CreateContractorCommandHandler
-            (CreateContractorCommandMapper mapper,
-            IUnitOfWork unitOfWork,
+            (IUnitOfWork unitOfWork,
             ILogger<CreateContractorCommandHandler> logger,
             IAddressRepository addressRepository,
-            IContractorRepository contractorRepository,
+            IDictionaryContractorRepository contractorRepository,
             IMediator mediator)
         {
-            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mediator = mediator;
@@ -34,7 +31,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
         public async Task<long> Handle(CreateContractorCommand request, CancellationToken cancellationToken)
         {
 
-            var contractor = _mapper.MapContractor(request);
+            var contractor = CreateContractorCommandMapper.MapContractor(request);
 
             try
             {

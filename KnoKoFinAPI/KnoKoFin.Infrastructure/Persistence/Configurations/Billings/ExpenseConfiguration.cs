@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Domain.Entities.Billings;
+using KnoKoFin.Domain.Enums;
 using KnoKoFin.Infrastructure.Persistence.Configurations.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -32,17 +33,16 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Billings
                 .HasColumnType("decimal(10,2)")
                 .HasColumnName("TOTAL_GROSS_PRICE");
 
-            builder.Property(e => e.CategoryId)
-                .HasColumnName("CATEGORY_ID")
-                .IsRequired();
+            builder.Property(e => e.TransactionType)
+                .HasColumnName("TRANSACTION_TYPE")
+                .HasMaxLength(50)
+                .IsRequired()
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (TransactionTypeEnum)Enum.Parse(typeof(TransactionTypeEnum), v));
 
             builder.Property(e => e.ContractorId)
                 .HasColumnName("CONTRACTOR_ID");
-
-            builder.HasOne(e => e.Category)
-                .WithMany()
-                .HasForeignKey(e => e.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Contractor)
                 .WithMany()

@@ -44,6 +44,14 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Dictionaries
 
             builder.Property(s => s.Quantity)
                 .HasColumnName("QUANTITY");
+
+            builder.Property(c => c.ServiceTypeId)
+                .HasColumnName("SERVICE_TYPE_ID");
+
+            // Relacje
+            builder.HasOne(c => c.ServiceType)
+                   .WithMany()
+                   .HasForeignKey(c => c.ServiceTypeId);
         }
     }
 }

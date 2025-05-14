@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
 {
-    internal class ServiceList
+    public class ServiceList
     {
+        public List<ServiceDto> Services { get; set; }
     }
 }

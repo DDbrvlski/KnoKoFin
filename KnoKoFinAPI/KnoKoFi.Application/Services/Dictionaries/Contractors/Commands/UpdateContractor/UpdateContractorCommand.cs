@@ -5,7 +5,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
 {
     public class UpdateContractorCommand : IRequest<UpdateContractorCommand>
     {
-        public long ContractorId { get; set; }
+        public long Id { get; set; }
         public string ContractorType { get; set; }
         public string? Name { get; set; }
         public string? FirstName { get; set; }

@@ -3,7 +3,7 @@ using KnoKoFin.Application.Common.Behaviours;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
 using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Domain.Interfaces;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries;
 using MediatR;
 using System.Reflection;
@@ -25,7 +25,6 @@ namespace KnoKoFin.API.Configuration
 
             // Rejestracja repozytorium i mappera
             services.AddScoped<IAddressRepository, AddressRepository>();
-            services.AddScoped<CreateAddressMapper>();
             services.AddSingleton<IDateTime, ApplicationDateTime>();
 
             return services;

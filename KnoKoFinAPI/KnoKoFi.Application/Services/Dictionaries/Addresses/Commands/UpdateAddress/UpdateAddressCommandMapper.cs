@@ -4,9 +4,9 @@ using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress
 {
-    public class UpdateAddressCommandMapper : IUpdateAddressMapper
+    public static class UpdateAddressCommandMapper
     {
-        public Address UpdateAddressCommandToAddressMap(Address address, UpdateAddressCommand updateAddress)
+        public static Address UpdateAddressCommandToAddressMap(Address address, UpdateAddressCommand updateAddress)
         {
             address.Update(
                     updateAddress.City,
@@ -18,7 +18,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             return address;
         }
 
-        public UpdateAddressCommand AddressToUpdateAddressCommandMap(Address address)
+        public static UpdateAddressCommand AddressToUpdateAddressCommandMap(Address address)
         {
             return new UpdateAddressCommand()
             {
@@ -30,7 +30,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             };
         }
 
-        public CreateAddressCommand UpdateAddressCommandToCreateAddressCommandMap(UpdateAddressCommand addressCommand)
+        public static CreateAddressCommand UpdateAddressCommandToCreateAddressCommandMap(UpdateAddressCommand addressCommand)
         {
             return new CreateAddressCommand()
             {
@@ -41,7 +41,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             };
         }
 
-        public UpdateAddressCommand CreateAddressCommandToUpdateAddressCommandMap(CreateAddressCommand createAddress)
+        public static UpdateAddressCommand CreateAddressCommandToUpdateAddressCommandMap(CreateAddressCommand createAddress)
         {
             var address = new UpdateAddressCommand()
             {

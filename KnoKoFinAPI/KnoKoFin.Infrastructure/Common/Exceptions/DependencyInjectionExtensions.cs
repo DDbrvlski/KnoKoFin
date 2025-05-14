@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
-using KnoKoFin.Domain.Interfaces.Repositories;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Billings;
 using KnoKoFin.Infrastructure.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Invoices;
@@ -21,10 +21,9 @@ namespace KnoKoFin.Infrastructure.Common.Exceptions
 
             #region Dictionaries
             services.AddScoped<IAddressRepository, AddressRepository>();
-            services.AddScoped<IContractorRepository, DictionaryContractorRepository>();
+            services.AddScoped<IDictionaryContractorRepository, DictionaryContractorRepository>();
             //services.AddScoped<IServiceRepository, DictionaryServiceRepository>();
             services.AddScoped<IServiceTypeRepository, ServiceTypeRepository>();
-            services.AddScoped<IServiceTypeQueryRepository, ServiceTypeRepository>();
             //services.AddScoped<ITransactionTypeRepository, TransactionTypeRepository>();
             #endregion
 

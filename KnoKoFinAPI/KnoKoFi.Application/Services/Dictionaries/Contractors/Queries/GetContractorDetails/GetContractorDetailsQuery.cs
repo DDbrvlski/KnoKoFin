@@ -1,6 +1,9 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails
+﻿using MediatR;
+
+namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails
 {
-    internal class GetContractorDetailsQuery
+    public class GetContractorDetailsQuery : IRequest<ContractorDetailsDto>
     {
+        public long Id { get; set; }
     }
 }

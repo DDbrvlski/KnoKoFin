@@ -1,6 +1,26 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails
+﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
+using MediatR;
+
+namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails
 {
-    internal class GetContractorDetailsQueryHandler
+    public class GetContractorDetailsQueryHandler : IRequestHandler<GetContractorDetailsQuery, ContractorDetailsDto>
     {
+        private readonly IDictionaryContractorRepository _contractorRepository;
+        public GetContractorDetailsQueryHandler(IDictionaryContractorRepository contractorRepository)
+        {
+            _contractorRepository = contractorRepository;
+        }
+
+        public async Task<ContractorDetailsDto> Handle(GetContractorDetailsQuery request, CancellationToken cancellationToken)
+        {
+            var query = _contractorRepository.GetSingle(request.Id);
+            var contractor = await GetContractorDetailsQueryMapper.GetContractorDetails(query, cancellationToken);
+            if (contractor == null)
+            {
+                throw new NotFoundException($"Nie znaleziono kontrahenta o id {request.Id}");
+            }
+            return contractor;
+        }
     }
 }

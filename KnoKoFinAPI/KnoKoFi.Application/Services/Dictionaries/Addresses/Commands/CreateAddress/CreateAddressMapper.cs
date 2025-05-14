@@ -2,9 +2,9 @@
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress
 {
-    public class CreateAddressMapper
+    public static class CreateAddressMapper
     {
-        public Address CreateAddressCommandToAddressMap(CreateAddressCommand command)
+        public static Address CreateAddressCommandToAddressMap(CreateAddressCommand command)
         {
             return Address.Create(
                 command.City,
@@ -14,7 +14,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
             );
         }
 
-        public CreateAddressCommand AddressToCreateAddressCommandMap(Address address)
+        public static CreateAddressCommand AddressToCreateAddressCommandMap(Address address)
         {
             return new CreateAddressCommand()
             {

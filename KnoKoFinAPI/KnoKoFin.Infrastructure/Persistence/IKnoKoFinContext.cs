@@ -8,12 +8,12 @@ namespace KnoKoFin.Infrastructure.Persistence
     public interface IKnoKoFinContext
     {
         DbSet<Address> Addresses { get; set; }
-        DbSet<Domain.Entities.Billings.Service> BillingServices { get; set; }
-        DbSet<Domain.Entities.Dictionaries.Contractor> DictionaryContractors { get; set; }
-        DbSet<Domain.Entities.Dictionaries.Service> DictionaryServices { get; set; }
+        DbSet<BillingService> BillingServices { get; set; }
+        DbSet<DictionaryContractor> DictionaryContractors { get; set; }
+        DbSet<DictionaryService> DictionaryServices { get; set; }
         DbSet<ExpensePosition> ExpensePositions { get; set; }
         DbSet<Expense> Expenses { get; set; }
-        DbSet<Domain.Entities.Invoices.Contractor> InvoiceContractors { get; set; }
+        DbSet<InvoiceContractor> InvoiceContractors { get; set; }
         DbSet<InvoiceMetadata> InvoiceMetadata { get; set; }
         DbSet<Invoice> Invoices { get; set; }
         DbSet<RevenuePosition> RevenuePositions { get; set; }

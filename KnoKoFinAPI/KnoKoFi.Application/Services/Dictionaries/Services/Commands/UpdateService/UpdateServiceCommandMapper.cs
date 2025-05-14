@@ -9,7 +9,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
 {
     public class UpdateServiceCommandMapper
     {
-        public Service Map(Service service, UpdateServiceCommand updateService)
+        public DictionaryService Map(DictionaryService service, UpdateServiceCommand updateService)
         {
             service.Update
                 (updateService.Name,
@@ -24,7 +24,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
             return service;
         }
 
-        public UpdateServiceDto Map(Service service)
+        public UpdateServiceDto Map(DictionaryService service)
         {
             return new UpdateServiceDto()
             {

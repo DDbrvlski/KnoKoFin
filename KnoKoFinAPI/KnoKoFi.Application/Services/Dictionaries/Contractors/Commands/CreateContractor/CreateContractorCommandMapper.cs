@@ -3,9 +3,9 @@ using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.CreateContractor
 {
-    public class CreateContractorCommandMapper
+    public static class CreateContractorCommandMapper
     {
-        public DictionaryContractor MapContractor(CreateContractorCommand command)
+        public static DictionaryContractor MapContractor(CreateContractorCommand command)
         {
             return DictionaryContractor.Create
                 (
@@ -23,7 +23,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
                     command.Swift
                 );
         }
-        public Address MapAddress(CreateAddressCommand command)
+        public static Address MapAddress(CreateAddressCommand command)
         {
             return Address.Create
                 (

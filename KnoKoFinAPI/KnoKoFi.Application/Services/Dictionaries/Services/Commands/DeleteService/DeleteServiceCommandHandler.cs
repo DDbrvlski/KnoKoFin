@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Interfaces.Repositories;
+﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,11 +12,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.DeleteSer
     public class DeleteServiceCommandHandler : IRequestHandler<DeleteServiceCommand>
     {
         private readonly ILogger<DeleteServiceCommandHandler> _logger;
-        private readonly IServiceRepository _serviceRepository;
+        private readonly IDictionaryServiceRepository _serviceRepository;
 
         public DeleteServiceCommandHandler
             (ILogger<DeleteServiceCommandHandler> logger,
-            IServiceRepository serviceRepository)
+            IDictionaryServiceRepository serviceRepository)
         {
             _logger = logger;
             _serviceRepository = serviceRepository;

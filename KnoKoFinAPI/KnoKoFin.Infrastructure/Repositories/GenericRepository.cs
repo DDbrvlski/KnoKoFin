@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Domain.Helpers;
+using KnoKoFin.Domain.Interfaces.Repositories;
 using KnoKoFin.Infrastructure.Common.Exceptions;
-using KnoKoFin.Infrastructure.Common.Interfaces;
 using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -21,17 +21,21 @@ namespace KnoKoFin.Infrastructure.Repositories
             _dbSet = context.Set<T>();
             _logger = logger;
         }
-        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
-        => await _dbSet.AnyAsync(predicate);
+        //public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
+        //=> await _dbSet.AnyAsync(predicate);
 
         public IQueryable<T> GetAll()
             => _dbSet.Where(x => x.IsActive);
 
-        public async Task<IEnumerable<T>> GetAllAsync()
-        => await _dbSet.Where(x => x.IsActive).ToListAsync();
+        public IQueryable<T> GetSingle(long id)
+            => _dbSet.Where(x => x.IsActive && x.Id == id);
 
-        public async Task<T?> GetByIdAsync(long id)
+        public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken)
+        => await _dbSet.Where(x => x.IsActive).ToListAsync(cancellationToken);
+
+        public async Task<T?> GetByIdAsync(long id, CancellationToken cancellationToken)
             => await _dbSet.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
+
         public async Task<List<T>> CreateManyAsync(List<T> entities, CancellationToken cancellationToken)
         {
             try
@@ -130,7 +134,7 @@ namespace KnoKoFin.Infrastructure.Repositories
         {
             try
             {
-                var entity = await GetByIdAsync(id);
+                var entity = await GetByIdAsync(id, cancellationToken);
                 if (entity != null)
                 {
                     entity.IsActive = false;
