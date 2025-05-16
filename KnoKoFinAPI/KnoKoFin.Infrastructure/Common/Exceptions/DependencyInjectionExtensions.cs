@@ -1,7 +1,9 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Repositories.Billings;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries;
+using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
+using KnoKoFin.Infrastructure.Repositories.Dictionaries.Contractors;
+using KnoKoFin.Infrastructure.Repositories.Dictionaries.ServiceTypes;
 using KnoKoFin.Infrastructure.Repositories.Invoices;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries;
+using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

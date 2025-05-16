@@ -11,16 +11,15 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetService
 {
     public class GetServiceDetailsQueryHandler : IRequestHandler<GetServiceDetailsQuery, ServiceDetailsDto>
     {
-        private readonly IDictionaryServiceRepository _serviceRepository;
-        public GetServiceDetailsQueryHandler(IDictionaryServiceRepository serviceRepository)
+        private readonly IGetServiceDetailsRepository _serviceRepository;
+        public GetServiceDetailsQueryHandler(IGetServiceDetailsRepository serviceRepository)
         {
             _serviceRepository = serviceRepository;
         }
 
         public async Task<ServiceDetailsDto> Handle(GetServiceDetailsQuery request, CancellationToken cancellationToken)
         {
-            var query = _serviceRepository.GetSingle(request.Id);
-            var serviceDetailsDto = await GetServiceDetailsQueryMapper.GetServiceDetails(query, cancellationToken);
+            var serviceDetailsDto = await _serviceRepository.GetServiceDetailsAsync(request.Id, cancellationToken);
             if (serviceDetailsDto == null) 
             {
                 throw new NotFoundException($"Nie znaleziono serwisu o id {request.Id}");

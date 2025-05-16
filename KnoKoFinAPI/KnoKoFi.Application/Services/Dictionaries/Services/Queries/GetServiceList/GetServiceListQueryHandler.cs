@@ -11,16 +11,15 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetService
 {
     public class GetServiceListQueryHandler : IRequestHandler<GetServiceListQuery, ServiceList>
     {
-        private readonly IDictionaryServiceRepository _serviceRepository;
-        public GetServiceListQueryHandler(IDictionaryServiceRepository serviceRepository)
+        private readonly IGetServiceListRepository _serviceRepository;
+        public GetServiceListQueryHandler(IGetServiceListRepository serviceRepository)
         {
             _serviceRepository = serviceRepository;
         }
 
         public async Task<ServiceList> Handle(GetServiceListQuery request, CancellationToken cancellationToken)
         {
-            var query = _serviceRepository.GetAll();
-            return await GetServiceListQueryMapper.GetServiceList(query, cancellationToken);
+            return await _serviceRepository.GetServiceListAsync(cancellationToken);
         }
     }
 }

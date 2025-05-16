@@ -4,7 +4,7 @@ using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddres
 using KnoKoFin.Domain.Helpers;
 using KnoKoFin.Domain.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
-using KnoKoFin.Infrastructure.Repositories.Dictionaries;
+using KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses;
 using MediatR;
 using System.Reflection;
 

@@ -5,16 +5,15 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetCont
 {
     public class GetContractorListQueryHandler : IRequestHandler<GetContractorListQuery, ContractorList>
     {
-        private readonly IDictionaryContractorRepository _contractorRepository;
-        public GetContractorListQueryHandler(IDictionaryContractorRepository contractorRepository)
+        private readonly IGetContractorListRepository _contractorRepository;
+        public GetContractorListQueryHandler(IGetContractorListRepository contractorRepository)
         {
             _contractorRepository = contractorRepository;
         }
 
         public async Task<ContractorList> Handle(GetContractorListQuery request, CancellationToken cancellationToken)
         {
-            var query = _contractorRepository.GetAll();
-            return await GetContractorListQueryMapper.GetContractorList(query, cancellationToken);
+            return await _contractorRepository.GetContractorList(cancellationToken);
         }
     }
 }

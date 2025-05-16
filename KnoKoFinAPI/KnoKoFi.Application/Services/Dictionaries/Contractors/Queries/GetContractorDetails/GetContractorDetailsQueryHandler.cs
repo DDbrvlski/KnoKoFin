@@ -6,16 +6,15 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetCont
 {
     public class GetContractorDetailsQueryHandler : IRequestHandler<GetContractorDetailsQuery, ContractorDetailsDto>
     {
-        private readonly IDictionaryContractorRepository _contractorRepository;
-        public GetContractorDetailsQueryHandler(IDictionaryContractorRepository contractorRepository)
+        private readonly IGetContractorDetailsRepository _contractorRepository;
+        public GetContractorDetailsQueryHandler(IGetContractorDetailsRepository contractorRepository)
         {
             _contractorRepository = contractorRepository;
         }
 
         public async Task<ContractorDetailsDto> Handle(GetContractorDetailsQuery request, CancellationToken cancellationToken)
         {
-            var query = _contractorRepository.GetSingle(request.Id);
-            var contractor = await GetContractorDetailsQueryMapper.GetContractorDetails(query, cancellationToken);
+            var contractor = await _contractorRepository.GetContractorDetails(request.Id, cancellationToken);
             if (contractor == null)
             {
                 throw new NotFoundException($"Nie znaleziono kontrahenta o id {request.Id}");
