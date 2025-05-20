@@ -42,7 +42,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
                 await _unitOfWork.CommitTransactionAsync();
 
                 _logger.LogInformation($"Pomyślnie zmodyfikowano kontrahenta o ID {updatedContractor.Id}.");
-                return UpdateContractorCommandMapper.Map(updatedContractor);
+                return UpdateContractorCommandMapper.ToCommand(updatedContractor);
             }
             catch (Exception ex)
             {

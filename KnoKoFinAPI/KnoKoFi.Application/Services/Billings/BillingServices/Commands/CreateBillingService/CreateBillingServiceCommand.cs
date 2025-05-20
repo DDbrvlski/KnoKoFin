@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingService.Commands.CreateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.CreateBillingService
 {
-    public class CreateBillingServiceCommand : IRequest<CreateBillingServiceCommand>
+    public class CreateBillingServiceCommand : IRequest<long>
     {
         public string? Name { get; set; }
         public string? Description { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingService.Commands.UpdateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
 {
     internal class UpdateBillingServiceCommandValidator
     {

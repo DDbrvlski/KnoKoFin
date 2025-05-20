@@ -1,15 +1,10 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
 {
-    public class UpdateServiceCommandMapper
+    public static class UpdateServiceCommandMapper
     {
-        public DictionaryService Map(DictionaryService service, UpdateServiceCommand updateService)
+        public static DictionaryService ApplyUpdate(DictionaryService service, UpdateServiceCommand updateService)
         {
             service.Update
                 (updateService.Name,
@@ -24,7 +19,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
             return service;
         }
 
-        public UpdateServiceDto Map(DictionaryService service)
+        public static UpdateServiceDto ToDto(DictionaryService service)
         {
             return new UpdateServiceDto()
             {

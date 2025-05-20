@@ -1,9 +1,10 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
+﻿using KnoKoFin.Application.DTOs;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
-    public class UpdateContractorCommand : IRequest<UpdateContractorCommand>
+    public class UpdateContractorCommand : BaseCommand, IRequest<UpdateContractorCommand>
     {
         public long Id { get; set; }
         public string ContractorType { get; set; }

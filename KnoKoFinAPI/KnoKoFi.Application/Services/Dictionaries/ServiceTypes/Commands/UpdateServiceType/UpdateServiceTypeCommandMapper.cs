@@ -4,13 +4,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Updat
 {
     public static class UpdateServiceTypeCommandMapper
     {
-        public static ServiceType Map(ServiceType serviceType, UpdateServiceTypeCommand command)
+        public static ServiceType ApplyUpdate(ServiceType serviceType, UpdateServiceTypeCommand command)
         {
             serviceType.Update(command.Name, command.Description);
             return serviceType;
         }
 
-        public static UpdateServiceTypeCommand Map(ServiceType serviceType)
+        public static UpdateServiceTypeCommand ToCommand(ServiceType serviceType)
         {
             return new UpdateServiceTypeCommand()
             {

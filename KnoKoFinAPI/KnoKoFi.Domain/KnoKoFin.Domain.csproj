@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Repositories\Billings\" />
     <Folder Include="Interfaces\Repositories\Invoices\" />
     <Folder Include="Shared\" />
   </ItemGroup>

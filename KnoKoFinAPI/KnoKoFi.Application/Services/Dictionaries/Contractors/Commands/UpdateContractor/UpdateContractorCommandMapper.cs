@@ -5,7 +5,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
 {
     public static class UpdateContractorCommandMapper
     {
-        public static DictionaryContractor Map(UpdateContractorCommand updateContractor)
+        public static DictionaryContractor ToEntity(UpdateContractorCommand updateContractor)
         {
 
             var contractor = DictionaryContractor.Create(
@@ -31,7 +31,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
             return contractor;
         }
 
-        public static UpdateContractorCommand Map(DictionaryContractor contractor)
+        public static UpdateContractorCommand ToCommand(DictionaryContractor contractor)
         {
             return new UpdateContractorCommand()
             {

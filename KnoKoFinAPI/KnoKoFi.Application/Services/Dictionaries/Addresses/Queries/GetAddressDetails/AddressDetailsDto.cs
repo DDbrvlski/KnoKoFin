@@ -1,6 +1,8 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails
+﻿using KnoKoFin.Application.DTOs;
+
+namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails
 {
-    public class AddressDetailsDto
+    public class AddressDetailsDto : BaseDto
     {
         public long Id { get; set; }
         public string Street { get; set; }

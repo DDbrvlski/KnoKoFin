@@ -19,10 +19,10 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Updat
         public async Task<UpdateServiceTypeCommand> Handle(UpdateServiceTypeCommand request, CancellationToken cancellationToken)
         {
             var serviceType = await _serviceTypeRepository.GetByIdAsync(request.Id, cancellationToken);
-            var updatedServiceType = UpdateServiceTypeCommandMapper.Map(serviceType, request);
+            var updatedServiceType = UpdateServiceTypeCommandMapper.ApplyUpdate(serviceType, request);
 
             await _serviceTypeRepository.UpdateAsync(updatedServiceType, cancellationToken);
-            return UpdateServiceTypeCommandMapper.Map(updatedServiceType);
+            return UpdateServiceTypeCommandMapper.ToCommand(updatedServiceType);
         }
     }
 }

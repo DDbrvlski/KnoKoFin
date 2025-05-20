@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KnoKoFin.Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
 {
-    public class UpdateServiceDto
+    public class UpdateServiceDto : BaseDto
     {
         public long Id { get; set; }
         public string? Name { get; set; }

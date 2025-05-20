@@ -14,14 +14,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
     {
         private readonly ILogger<UpdateServiceCommandHandler> _logger;
         private readonly IDictionaryServiceRepository _serviceRepository;
-        private readonly UpdateServiceCommandMapper _mapper;
 
         public UpdateServiceCommandHandler
-            (UpdateServiceCommandMapper mapper,
-            ILogger<UpdateServiceCommandHandler> logger,
+            (ILogger<UpdateServiceCommandHandler> logger,
             IDictionaryServiceRepository serviceRepository)
         {
-            _mapper = mapper;
             _logger = logger;
             _serviceRepository = serviceRepository;
         }
@@ -33,10 +30,10 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
                 throw new UpdateFailureException(nameof(serviceToUpdate), request.Id, "Nie znaleziono podanego serwisu do aktualizacji");
             }
 
-            var service = _mapper.Map(serviceToUpdate, request);
+            var service = UpdateServiceCommandMapper.ApplyUpdate(serviceToUpdate, request);
             var updatedService = await _serviceRepository.UpdateAsync(service, cancellationToken);
 
-            return _mapper.Map(updatedService);
+            return UpdateServiceCommandMapper.ToDto(updatedService);
         }
     }
 }

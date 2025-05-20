@@ -6,18 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
+namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
 {
-    public class UpdateServiceCommand : BaseCommand, IRequest<UpdateServiceDto>
+    public class UpdateBillingServiceCommand : BaseCommand, IRequest<UpdateBillingServiceCommand>
     {
         public long Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
+        public bool Archival { get; set; } = false;
         public decimal? Discount { get; set; }
         public decimal? NetPrice { get; set; }
         public decimal? GrossPrice { get; set; }
         public decimal? Vat { get; set; }
         public string? Unit { get; set; }
         public int? Quantity { get; set; }
+        public long? ServiceTypeId { get; set; }
     }
 }

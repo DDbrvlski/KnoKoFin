@@ -16,6 +16,43 @@ namespace KnoKoFin.Domain.Entities.Billings
         public int? Quantity { get; set; }
         public long? ServiceTypeId { get; set; }
         public virtual ServiceType? ServiceType { get; set; }
+
+        private BillingService() { }
+
+        public static BillingService Create
+            (string? name, string? description, decimal? discount,
+             decimal? netPrice, decimal? grossPrice, decimal? vat,
+             string? unit, int? quantity, long? serviceTypeId)
+        {
+            return new BillingService
+            {
+                Name = name,
+                Description = description,
+                Discount = discount,
+                NetPrice = netPrice,
+                GrossPrice = grossPrice,
+                Vat = vat,
+                Unit = unit,
+                Quantity = quantity,
+                ServiceTypeId = serviceTypeId
+            };
+        }
+
+        public void Update
+            (string? name, string? description, decimal? discount,
+             decimal? netPrice, decimal? grossPrice, decimal? vat,
+             string? unit, int? quantity, long? serviceTypeId)
+        {
+            Name = name;
+            Description = description;
+            Discount = discount;
+            NetPrice = netPrice;
+            GrossPrice = grossPrice;
+            Vat = vat;
+            Unit = unit;
+            Quantity = quantity;
+            ServiceTypeId = serviceTypeId;
+        }
     }
 
 }
