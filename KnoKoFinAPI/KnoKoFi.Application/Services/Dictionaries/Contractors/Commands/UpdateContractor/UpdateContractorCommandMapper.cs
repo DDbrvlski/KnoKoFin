@@ -1,14 +1,16 @@
 ﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.CreateContractor;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Dto;
 using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor
 {
     public static class UpdateContractorCommandMapper
     {
-        public static DictionaryContractor ToEntity(UpdateContractorCommand updateContractor)
+        public static DictionaryContractor ApplyUpdate(DictionaryContractor contractor, UpdateContractorCommand updateContractor)
         {
-
-            var contractor = DictionaryContractor.Create(
+            contractor.Update(
                 updateContractor.ContractorType,
                 updateContractor.Name,
                 updateContractor.FirstName,
@@ -23,17 +25,12 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
                 updateContractor.Swift
             );
 
-            if (updateContractor.Address.Id != null)
-            {
-                contractor.AddressId = updateContractor.Address.Id;
-            }
-
             return contractor;
         }
 
-        public static UpdateContractorCommand ToCommand(DictionaryContractor contractor)
+        public static UpdateContractorResultDto GetContractorDetailsToUpdateContractorResult(ContractorDetailsDto contractor)
         {
-            return new UpdateContractorCommand()
+            return new UpdateContractorResultDto()
             {
                 Id = contractor.Id,
                 FirstName = contractor.FirstName,
@@ -44,9 +41,14 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Update
                 PhoneNumber = contractor.PhoneNumber,
                 BankAccountNumber = contractor.BankAccountNumber,
                 BankName = contractor.BankName,
+                ContractorType = contractor.ContractorType,
+                Name = contractor.Name,
                 Fax = contractor.Fax,
+                CreatedAt = contractor.CreatedAt,
+                LastModifiedAt = contractor.LastModifiedAt,
+                RowVersion = contractor.RowVersion,
                 Swift = contractor.Swift,
-                Address = new UpdateAddressCommand()
+                Address = new UpdateAddressResultDto()
                 {
                     Id = contractor.Address.Id,
                     City = contractor.Address.City,

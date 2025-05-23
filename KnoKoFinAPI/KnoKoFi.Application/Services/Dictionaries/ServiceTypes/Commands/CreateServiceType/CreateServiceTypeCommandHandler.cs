@@ -1,11 +1,12 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
 {
-    public class CreateServiceTypeCommandHandler : IRequestHandler<CreateServiceTypeCommand, CreateServiceTypeDto>
+    public class CreateServiceTypeCommandHandler : IRequestHandler<CreateServiceTypeCommand, CreateServiceTypeResultDto>
     {
         private readonly ILogger<CreateServiceTypeCommandHandler> _logger;
         private readonly IServiceTypeRepository _serviceTypeRepository;
@@ -16,11 +17,11 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Creat
             _logger = logger;
             _serviceTypeRepository = serviceTypeRepository;
         }
-        public async Task<CreateServiceTypeDto> Handle(CreateServiceTypeCommand request, CancellationToken cancellationToken)
+        public async Task<CreateServiceTypeResultDto> Handle(CreateServiceTypeCommand request, CancellationToken cancellationToken)
         {
-            var serviceTypeToAdd = CreateServiceTypeCommandMapper.Map(request);
+            var serviceTypeToAdd = CreateServiceTypeCommandMapper.CommandToServiceType(request);
             var serviceType = await _serviceTypeRepository.CreateAsync(serviceTypeToAdd, cancellationToken);
-            return CreateServiceTypeCommandMapper.Map(serviceType);
+            return CreateServiceTypeCommandMapper.ServiceTypeToServiceTypeDto(serviceType);
         }
     }
 }

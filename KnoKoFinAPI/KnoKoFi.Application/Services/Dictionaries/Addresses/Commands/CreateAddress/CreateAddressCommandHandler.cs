@@ -19,12 +19,12 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAd
 
         public async Task<CreateAddressCommand> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
         {
-            var entity = CreateAddressMapper.CreateAddressCommandToAddressMap(request);
+            var entity = CreateAddressCommandMapper.AddressCommandToAddress(request);
 
             await _repository.CreateAsync(entity, cancellationToken);
 
             _logger.LogInformation($"Adres został pomyślnie utworzony: {0}", entity.Id);
-            return CreateAddressMapper.AddressToCreateAddressCommandMap(entity);
+            return CreateAddressCommandMapper.AddressToAddressCommand(entity);
         }
 
     }

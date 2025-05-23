@@ -1,4 +1,6 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using System;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
 {
-    public class GetServiceListQueryHandler : IRequestHandler<GetServiceListQuery, ServiceList>
+    public class GetServiceListQueryHandler : IRequestHandler<GetServiceListQuery, ServiceListDto>
     {
         private readonly IGetServiceListRepository _serviceRepository;
         public GetServiceListQueryHandler(IGetServiceListRepository serviceRepository)
@@ -17,7 +19,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetService
             _serviceRepository = serviceRepository;
         }
 
-        public async Task<ServiceList> Handle(GetServiceListQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceListDto> Handle(GetServiceListQuery request, CancellationToken cancellationToken)
         {
             return await _serviceRepository.GetServiceListAsync(cancellationToken);
         }

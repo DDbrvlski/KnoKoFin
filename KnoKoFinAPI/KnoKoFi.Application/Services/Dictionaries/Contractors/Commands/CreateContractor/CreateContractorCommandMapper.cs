@@ -5,7 +5,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
 {
     public static class CreateContractorCommandMapper
     {
-        public static DictionaryContractor MapContractor(CreateContractorCommand command)
+        public static DictionaryContractor CommandToContractor(CreateContractorCommand command)
         {
             return DictionaryContractor.Create
                 (
@@ -23,7 +23,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
                     command.Swift
                 );
         }
-        public static Address MapAddress(CreateAddressCommand command)
+        public static Address CommandToAddress(CreateAddressCommand command)
         {
             return Address.Create
                 (

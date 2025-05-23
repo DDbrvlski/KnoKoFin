@@ -6,7 +6,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
 {
     public static class UpdateAddressCommandMapper
     {
-        public static Address UpdateAddressCommandToAddressMap(Address address, UpdateAddressCommand updateAddress)
+        public static Address ApplyUpdate(Address address, UpdateAddressCommand updateAddress)
         {
             address.Update(
                     updateAddress.City,
@@ -18,7 +18,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             return address;
         }
 
-        public static UpdateAddressCommand AddressToUpdateAddressCommandMap(Address address)
+        public static UpdateAddressCommand AddressToAddressCommand(Address address)
         {
             return new UpdateAddressCommand()
             {
@@ -30,7 +30,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             };
         }
 
-        public static CreateAddressCommand UpdateAddressCommandToCreateAddressCommandMap(UpdateAddressCommand addressCommand)
+        public static CreateAddressCommand UpdateAddressCommandToCreateAddressCommand(UpdateAddressCommand addressCommand)
         {
             return new CreateAddressCommand()
             {

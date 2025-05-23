@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Application.DTOs;
+using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
 {
-    public class UpdateServiceCommand : BaseCommand, IRequest<UpdateServiceDto>
+    public class UpdateServiceCommand : BaseCommand, IRequest<UpdateServiceResultDto>
     {
         public long Id { get; set; }
         public string? Name { get; set; }

@@ -1,4 +1,6 @@
 ﻿using KnoKoFin.Application.Services.Billings.BillingServices.Commands.CreateBillingService;
+using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Entities.Billings;
 using System;
 using System.Collections.Generic;
@@ -26,9 +28,9 @@ namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.Update
             return entity;
         }
 
-        public static UpdateBillingServiceCommand ToCommand(BillingService entity)
+        public static UpdateBillingServiceResultDto BillingServiceToUpdateResultDto(BillingService entity)
         {
-            return new UpdateBillingServiceCommand()
+            return new UpdateBillingServiceResultDto()
             {
                 Id = entity.Id,
                 Name = entity.Name,

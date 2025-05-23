@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
@@ -12,7 +13,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.ServiceTypes
         public ServiceTypeRepository(KnoKoFinContext context, ILogger<GenericRepository<ServiceType>> logger)
             : base(context, logger) { }
 
-        public async Task<ServiceTypeList> GetServiceTypeList(CancellationToken cancellationToken)
+        public async Task<ServiceTypeListDto> GetServiceTypeList(CancellationToken cancellationToken)
         {
             var items = await GetAll()
                 .Select(x => new ServiceTypeDto
@@ -23,7 +24,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.ServiceTypes
                 })
                 .ToListAsync(cancellationToken);
 
-            return new ServiceTypeList() { ServiceTypes = items };
+            return new ServiceTypeListDto() { ServiceTypes = items };
         }
     }
 }

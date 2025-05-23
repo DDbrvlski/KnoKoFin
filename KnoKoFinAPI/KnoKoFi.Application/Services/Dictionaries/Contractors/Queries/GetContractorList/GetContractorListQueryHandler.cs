@@ -1,4 +1,6 @@
-﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
+﻿using KnoKoFin.Application.Services.Dictionaries.Contractors.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Interfaces;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorList

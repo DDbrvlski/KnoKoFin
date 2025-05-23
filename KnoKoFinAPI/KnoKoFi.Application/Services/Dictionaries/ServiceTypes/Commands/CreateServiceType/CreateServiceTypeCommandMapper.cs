@@ -1,16 +1,17 @@
-﻿using KnoKoFin.Domain.Entities.Dictionaries;
+﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
+using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
 {
     public static class CreateServiceTypeCommandMapper
     {
-        public static ServiceType Map(CreateServiceTypeCommand command)
+        public static ServiceType CommandToServiceType(CreateServiceTypeCommand command)
         {
             return ServiceType.Create(command.Name, command.Description);
         }
-        public static CreateServiceTypeDto Map(ServiceType serviceType)
+        public static CreateServiceTypeResultDto ServiceTypeToServiceTypeDto(ServiceType serviceType)
         {
-            return new CreateServiceTypeDto()
+            return new CreateServiceTypeResultDto()
             {
                 Id = serviceType.Id,
                 Name = serviceType.Name,

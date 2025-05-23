@@ -1,5 +1,5 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceDetails;
-using KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -27,12 +27,15 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Services
                 ServiceTypeName = x.ServiceType.Name,
                 Unit = x.Unit,
                 Vat = x.Vat,
+                CreatedAt = x.CreatedAt,
+                LastModifiedAt = x.UpdatedAt,
+                RowVersion = x.RowVersion
             }).FirstOrDefaultAsync(cancellationToken);
 
             return serviceDetailsDto;
         }
 
-        public async Task<ServiceList> GetServiceListAsync(CancellationToken cancellationToken)
+        public async Task<ServiceListDto> GetServiceListAsync(CancellationToken cancellationToken)
         {
             var items = await GetAll()
             .Select(x => new ServiceDto
@@ -44,7 +47,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Services
             })
             .ToListAsync(cancellationToken);
 
-            return new ServiceList() { Services = items };
+            return new ServiceListDto() { Services = items };
         }
     }
 }

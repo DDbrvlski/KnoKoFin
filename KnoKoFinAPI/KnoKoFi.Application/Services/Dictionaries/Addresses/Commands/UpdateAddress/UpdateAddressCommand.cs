@@ -3,7 +3,7 @@ using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress
 {
-    public class UpdateAddressCommand : BaseCommand, IRequest<UpdateAddressCommand>
+    public class UpdateAddressCommand : IRequest<UpdateAddressCommand>
     {
         public long Id { get; set; }
         public string Street { get; set; }

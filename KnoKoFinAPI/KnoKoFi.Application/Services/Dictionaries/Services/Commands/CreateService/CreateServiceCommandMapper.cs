@@ -1,15 +1,10 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateService
 {
     public class CreateServiceCommandMapper
     {
-        public DictionaryService Map(CreateServiceCommand command)
+        public DictionaryService CommandToService(CreateServiceCommand command)
         {
             return DictionaryService.Create
                 (command.Name,

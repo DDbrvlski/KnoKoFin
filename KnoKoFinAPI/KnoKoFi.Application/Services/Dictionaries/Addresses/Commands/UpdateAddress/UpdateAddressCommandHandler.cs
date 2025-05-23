@@ -26,13 +26,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAd
             if (entity != null)
             {
                 //Mapowanie pól z obiektu UpdateAddressCommand - request do obiektu Address entity
-                var newAddress = UpdateAddressCommandMapper.UpdateAddressCommandToAddressMap(entity, request);
+                var newAddress = UpdateAddressCommandMapper.ApplyUpdate(entity, request);
                 //Aktualizacja zmapowanego obiektu
                 var updatedAddress = await _addressRepository.UpdateAsync(newAddress, cancellationToken);
 
                 _logger.LogInformation("Adres został pomyślnie zmodyfikowany: {Id}", entity.Id);
                 //Zwrot zaktualizowanego obiektu encji
-                return UpdateAddressCommandMapper.AddressToUpdateAddressCommandMap(updatedAddress);
+                return UpdateAddressCommandMapper.AddressToAddressCommand(updatedAddress);
             }
             else
             {

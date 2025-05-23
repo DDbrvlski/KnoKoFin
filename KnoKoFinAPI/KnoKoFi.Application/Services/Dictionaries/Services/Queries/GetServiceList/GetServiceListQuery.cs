@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
 {
-    public class GetServiceListQuery : IRequest<ServiceList>
+    public class GetServiceListQuery : IRequest<ServiceListDto>
     {
     }
 }

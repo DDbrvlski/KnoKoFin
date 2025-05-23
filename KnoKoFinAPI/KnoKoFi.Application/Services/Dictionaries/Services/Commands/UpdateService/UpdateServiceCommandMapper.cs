@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Domain.Entities.Dictionaries;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
 {
@@ -19,9 +20,9 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
             return service;
         }
 
-        public static UpdateServiceDto ToDto(DictionaryService service)
+        public static UpdateServiceResultDto ServiceToUpdateServiceDto(DictionaryService service)
         {
-            return new UpdateServiceDto()
+            return new UpdateServiceResultDto()
             {
                 Id = service.Id,
                 Name = service.Name,
@@ -32,6 +33,9 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
                 Vat = service.Vat,
                 Unit = service.Unit,
                 Quantity = service.Quantity,
+                CreatedAt = service.CreatedAt,
+                LastModifiedAt = service.UpdatedAt,
+                RowVersion = service.RowVersion,
             };
         }
     }

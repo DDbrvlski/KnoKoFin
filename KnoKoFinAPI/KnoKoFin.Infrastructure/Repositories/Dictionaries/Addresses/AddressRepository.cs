@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails;
+﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
@@ -22,6 +23,9 @@ namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Addresses
                     Country = x.Country,
                     Postcode = x.PostCode,
                     Street = x.Street,
+                    CreatedAt = x.CreatedAt,
+                    LastModifiedAt = x.UpdatedAt,
+                    RowVersion = x.RowVersion
                 }).FirstOrDefaultAsync();
 
             return address;

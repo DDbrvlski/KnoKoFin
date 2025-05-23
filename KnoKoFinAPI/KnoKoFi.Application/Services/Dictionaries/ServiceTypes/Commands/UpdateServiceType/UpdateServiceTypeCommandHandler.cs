@@ -1,10 +1,11 @@
-﻿using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
+﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
+using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.UpdateServiceType
 {
-    public class UpdateServiceTypeCommandHandler : IRequestHandler<UpdateServiceTypeCommand, UpdateServiceTypeCommand>
+    public class UpdateServiceTypeCommandHandler : IRequestHandler<UpdateServiceTypeCommand, UpdateServiceTypeResultDto>
     {
         private readonly ILogger<UpdateServiceTypeCommandHandler> _logger;
         private readonly IServiceTypeRepository _serviceTypeRepository;
@@ -16,13 +17,13 @@ namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.Updat
             _serviceTypeRepository = serviceTypeRepository;
         }
 
-        public async Task<UpdateServiceTypeCommand> Handle(UpdateServiceTypeCommand request, CancellationToken cancellationToken)
+        public async Task<UpdateServiceTypeResultDto> Handle(UpdateServiceTypeCommand request, CancellationToken cancellationToken)
         {
             var serviceType = await _serviceTypeRepository.GetByIdAsync(request.Id, cancellationToken);
             var updatedServiceType = UpdateServiceTypeCommandMapper.ApplyUpdate(serviceType, request);
 
             await _serviceTypeRepository.UpdateAsync(updatedServiceType, cancellationToken);
-            return UpdateServiceTypeCommandMapper.ToCommand(updatedServiceType);
+            return UpdateServiceTypeCommandMapper.ServiceTypeToUpdateResultDto(updatedServiceType);
         }
     }
 }

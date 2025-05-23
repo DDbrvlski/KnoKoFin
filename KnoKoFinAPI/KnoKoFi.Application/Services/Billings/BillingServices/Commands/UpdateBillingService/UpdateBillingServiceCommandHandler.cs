@@ -1,4 +1,6 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Interfaces.Repositories.Billings;
 using MediatR;
 using System;
@@ -9,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
 {
-    public class UpdateBillingServiceCommandHandler : IRequestHandler<UpdateBillingServiceCommand, UpdateBillingServiceCommand>
+    public class UpdateBillingServiceCommandHandler : IRequestHandler<UpdateBillingServiceCommand, UpdateBillingServiceResultDto>
     {
         private readonly IBillingServiceRepository _billingServiceRepository;
         public UpdateBillingServiceCommandHandler(IBillingServiceRepository billingServiceRepository)
         {
             _billingServiceRepository = billingServiceRepository;
         }
-        public async Task<UpdateBillingServiceCommand> Handle(UpdateBillingServiceCommand request, CancellationToken cancellationToken)
+        public async Task<UpdateBillingServiceResultDto> Handle(UpdateBillingServiceCommand request, CancellationToken cancellationToken)
         {
             var oldEntity = await _billingServiceRepository.GetByIdAsync(request.Id, cancellationToken);
             if (oldEntity == null)
@@ -27,7 +29,7 @@ namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.Update
             UpdateBillingServiceCommandMapper.ApplyUpdate(oldEntity, request);
 
             var newEntity = await _billingServiceRepository.UpdateAsync(oldEntity, cancellationToken);
-            return UpdateBillingServiceCommandMapper.ToCommand(newEntity);
+            return UpdateBillingServiceCommandMapper.BillingServiceToUpdateResultDto(newEntity);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using KnoKoFin.Application.DTOs;
+using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
 {
-    public class UpdateBillingServiceCommand : BaseCommand, IRequest<UpdateBillingServiceCommand>
+    public class UpdateBillingServiceCommand : BaseCommand, IRequest<UpdateBillingServiceResultDto>
     {
         public long Id { get; set; }
         public string? Name { get; set; }

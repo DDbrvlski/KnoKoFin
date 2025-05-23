@@ -31,7 +31,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
         public async Task<long> Handle(CreateContractorCommand request, CancellationToken cancellationToken)
         {
 
-            var contractor = CreateContractorCommandMapper.MapContractor(request);
+            var contractor = CreateContractorCommandMapper.CommandToContractor(request);
 
             try
             {

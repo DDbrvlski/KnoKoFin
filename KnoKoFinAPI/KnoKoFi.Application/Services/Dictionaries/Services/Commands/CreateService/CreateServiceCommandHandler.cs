@@ -27,7 +27,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateSer
 
         public async Task<long> Handle(CreateServiceCommand request, CancellationToken cancellationToken)
         {
-            var serviceToAdd = _mapper.Map(request);
+            var serviceToAdd = _mapper.CommandToService(request);
             var newService = await _serviceRepository.CreateAsync(serviceToAdd, cancellationToken);
 
             return newService.Id;
