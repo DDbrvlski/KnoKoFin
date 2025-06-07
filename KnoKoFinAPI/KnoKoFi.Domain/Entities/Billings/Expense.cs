@@ -6,16 +6,56 @@ namespace KnoKoFin.Domain.Entities.Billings
 {
     public class Expense : BaseModel
     {
-        public string Name { get; set; }
-        public string? Description { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public decimal TotalNetPrice { get; set; }
-        public decimal TotalGrossPrice { get; set; }
-        public long CategoryId { get; set; }
-        public long? ContractorId { get; set; }
+        public string Name { get; private set; }
+        public string? Description { get; private set; }
+        public DateTime PurchaseDate { get; private set; }
+        public decimal TotalNetPrice { get; private set; }
+        public decimal TotalGrossPrice { get; private set; }
+        public long? ContractorId { get; private set; }
 
-        public virtual TransactionTypeEnum TransactionType { get; set; }
-        public virtual DictionaryContractor? Contractor { get; set; }
-        public virtual ICollection<ExpensePosition> Positions { get; set; }
+        public virtual TransactionTypeEnum TransactionType { get; private set; }
+        public virtual DictionaryContractor? Contractor { get; private set; }
+        public virtual ICollection<ExpensePosition> Positions { get; private set; }
+
+        private Expense() { }
+
+        public static Expense Create(
+            string name,
+            string? description,
+            DateTime purchaseDate,
+            decimal totalNetPrice,
+            decimal totalGrossPrice,
+            long? contractorId,
+            TransactionTypeEnum transactionType)
+        {
+            return new Expense
+            {
+                Name = name,
+                Description = description,
+                PurchaseDate = purchaseDate,
+                TotalNetPrice = totalNetPrice,
+                TotalGrossPrice = totalGrossPrice,
+                ContractorId = contractorId,
+                TransactionType = transactionType
+            };
+        }
+
+        public void Update(
+            string name,
+            string? description,
+            DateTime purchaseDate,
+            decimal totalNetPrice,
+            decimal totalGrossPrice,
+            long? contractorId,
+            TransactionTypeEnum transactionType)
+        {
+            Name = name;
+            Description = description;
+            PurchaseDate = purchaseDate;
+            TotalNetPrice = totalNetPrice;
+            TotalGrossPrice = totalGrossPrice;
+            ContractorId = contractorId;
+            TransactionType = transactionType;
+        }
     }
 }

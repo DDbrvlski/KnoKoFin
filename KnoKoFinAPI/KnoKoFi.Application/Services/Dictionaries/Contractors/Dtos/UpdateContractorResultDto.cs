@@ -1,13 +1,13 @@
 ﻿using KnoKoFin.Application.DTOs;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dto
+namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos
 {
     public class UpdateContractorResultDto : BaseDto
     {

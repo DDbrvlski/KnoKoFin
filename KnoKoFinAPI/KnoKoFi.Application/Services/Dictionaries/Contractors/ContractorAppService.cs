@@ -1,8 +1,10 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.CreateContractor;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor;
-using KnoKoFin.Application.Services.Dictionaries.Contractors.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
@@ -22,13 +24,26 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors
             (ILogger<ContractorAppService> logger,
             IDictionaryContractorRepository contractorRepository,
             IGetContractorDetailsRepository contractorDetailsRepository,
-            IAddressRepository addressRepository,
-            IUnitOfWork unitOfWork)
+            IAddressRepository addressRepository)
         {
             _contractorRepository = contractorRepository;
             _addressRepository = addressRepository;
             _logger = logger;
             _contractorDetailsRepository = contractorDetailsRepository;
+        }
+        public async Task<DictionaryContractor> CreateContractorAsync(CreateContractorCommand command, CancellationToken cancellationToken)
+        {
+            var contractor = CreateContractorCommandMapper.CommandToContractor(command);
+            var address = CreateAddressCommandMapper.AddressCommandToAddress(command.Address);
+
+            if(address != null)
+            {
+                var newAddress = await _addressRepository.CreateAsync(address, cancellationToken);
+                contractor.SetAddress(newAddress.Id);
+            }
+
+            var newContractor = await _contractorRepository.CreateAsync(contractor, cancellationToken);
+            return newContractor;
         }
 
         public async Task<UpdateContractorResultDto> UpdateContractorAsync(UpdateContractorCommand command, CancellationToken cancellationToken)

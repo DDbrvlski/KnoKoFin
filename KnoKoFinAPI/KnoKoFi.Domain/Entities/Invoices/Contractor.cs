@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,7 @@ namespace KnoKoFin.Domain.Entities.Invoices
     public class Contractor
     {
         [Column("CONTRACTOR_TYPE")]
-        public string ContractorType { get; set; }
+        public ContractorTypeEnum ContractorType { get; set; }
 
         [MaxLength(100)]
         [Column("NAME")]

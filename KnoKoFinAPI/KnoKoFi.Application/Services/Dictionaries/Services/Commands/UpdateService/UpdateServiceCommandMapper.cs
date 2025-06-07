@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService

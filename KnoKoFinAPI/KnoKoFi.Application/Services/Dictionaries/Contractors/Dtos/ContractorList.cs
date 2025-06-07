@@ -1,4 +1,4 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dto
+﻿namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos
 {
     public class ContractorList
     {

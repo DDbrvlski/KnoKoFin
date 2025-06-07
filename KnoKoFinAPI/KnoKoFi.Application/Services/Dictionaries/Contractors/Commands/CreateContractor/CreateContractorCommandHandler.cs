@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
@@ -10,22 +11,16 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
     public class CreateContractorCommandHandler : IRequestHandler<CreateContractorCommand, long>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IContractorAppService _contractorAppService;
         private readonly ILogger<CreateContractorCommandHandler> _logger;
-        private readonly IAddressRepository _addressRepository;
-        private readonly IDictionaryContractorRepository _contractorRepository;
-        private readonly IMediator _mediator;
         public CreateContractorCommandHandler
             (IUnitOfWork unitOfWork,
-            ILogger<CreateContractorCommandHandler> logger,
-            IAddressRepository addressRepository,
-            IDictionaryContractorRepository contractorRepository,
-            IMediator mediator)
+            IContractorAppService contractorAppService,
+            ILogger<CreateContractorCommandHandler> logger,r)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
-            _mediator = mediator;
-            _addressRepository = addressRepository;
-            _contractorRepository = contractorRepository;
+            _contractorAppService = contractorAppService;
         }
 
         public async Task<long> Handle(CreateContractorCommand request, CancellationToken cancellationToken)
@@ -37,11 +32,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.Create
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                var addedAddress = await _mediator.Send(request.Address, cancellationToken);
-                // Przypisanie ID utworzonego adresu do contractora
-                contractor.SetAddress((long)addedAddress.Id);
-
-                var addedContractor = await _contractorRepository.CreateAsync(contractor, cancellationToken);
+                var addedContractor = await _contractorAppService.CreateContractorAsync(request, cancellationToken);
 
                 await _unitOfWork.CommitTransactionAsync();
 

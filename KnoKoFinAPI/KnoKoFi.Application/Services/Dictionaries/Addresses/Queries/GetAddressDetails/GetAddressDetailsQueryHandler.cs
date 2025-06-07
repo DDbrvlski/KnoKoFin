@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Interfaces;
 using MediatR;
 

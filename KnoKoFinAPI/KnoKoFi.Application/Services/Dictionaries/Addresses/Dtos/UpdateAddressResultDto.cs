@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Dto
+namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos
 {
     public class UpdateAddressResultDto : BaseDto
     {

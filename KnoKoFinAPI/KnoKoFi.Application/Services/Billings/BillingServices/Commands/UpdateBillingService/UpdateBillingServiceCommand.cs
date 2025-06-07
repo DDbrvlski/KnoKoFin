@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.DTOs;
-using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using MediatR;
 using System;

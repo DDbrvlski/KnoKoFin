@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Dto
+namespace KnoKoFin.Application.Services.Billings.BillingServices.Dtos
 {
     public class BillingServiceDto
     {

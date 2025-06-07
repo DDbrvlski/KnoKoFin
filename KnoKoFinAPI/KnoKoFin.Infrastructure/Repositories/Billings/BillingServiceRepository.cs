@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+﻿using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
 using KnoKoFin.Application.Services.Billings.BillingServices.Interfaces;
 using KnoKoFin.Domain.Entities.Billings;
 using KnoKoFin.Domain.Interfaces.Repositories.Billings;

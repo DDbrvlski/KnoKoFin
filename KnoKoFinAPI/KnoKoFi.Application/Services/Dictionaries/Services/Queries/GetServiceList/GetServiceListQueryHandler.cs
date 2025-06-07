@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;

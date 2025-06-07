@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos;
 using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Queries.GetAddressDetails

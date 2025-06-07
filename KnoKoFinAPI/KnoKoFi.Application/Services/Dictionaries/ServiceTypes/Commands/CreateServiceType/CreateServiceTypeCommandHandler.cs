@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
+using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;

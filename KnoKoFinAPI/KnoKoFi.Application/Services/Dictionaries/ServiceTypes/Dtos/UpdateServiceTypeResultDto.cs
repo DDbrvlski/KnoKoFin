@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto
+namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos
 {
     public class UpdateServiceTypeResultDto : BaseDto
     {

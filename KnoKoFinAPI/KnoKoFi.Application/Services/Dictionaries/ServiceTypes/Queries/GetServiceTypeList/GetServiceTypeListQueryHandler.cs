@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;

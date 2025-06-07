@@ -1,4 +1,5 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
+using KnoKoFin.Domain.Enums;
 using KnoKoFin.Domain.Helpers;
 
 namespace KnoKoFin.Domain.Entities.Billings
@@ -12,7 +13,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public decimal? NetPrice { get; set; }
         public decimal? GrossPrice { get; set; }
         public decimal? Vat { get; set; }
-        public string? Unit { get; set; }
+        public UnityTypeEnum? Unit { get; set; }
         public int? Quantity { get; set; }
         public long? ServiceTypeId { get; set; }
         public virtual ServiceType? ServiceType { get; set; }
@@ -22,7 +23,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public static BillingService Create
             (string? name, string? description, decimal? discount,
              decimal? netPrice, decimal? grossPrice, decimal? vat,
-             string? unit, int? quantity, long? serviceTypeId)
+             UnityTypeEnum? unit, int? quantity, long? serviceTypeId)
         {
             return new BillingService
             {
@@ -41,7 +42,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public void Update
             (string? name, string? description, decimal? discount,
              decimal? netPrice, decimal? grossPrice, decimal? vat,
-             string? unit, int? quantity, long? serviceTypeId)
+             UnityTypeEnum? unit, int? quantity, long? serviceTypeId)
         {
             Name = name;
             Description = description;

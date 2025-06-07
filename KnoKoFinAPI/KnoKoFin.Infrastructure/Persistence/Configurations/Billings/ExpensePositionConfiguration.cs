@@ -11,10 +11,10 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Billings
         {
             builder.ToTable("expenses_positions", "billing");
 
-            builder.Property(ep => ep.Name)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("NAME");
+            //builder.Property(ep => ep.Name)
+            //    .IsRequired()
+            //    .HasMaxLength(255)
+            //    .HasColumnName("NAME");
 
             builder.Property(ep => ep.ExpenseId)
                 .HasColumnName("EXPENSE_ID")

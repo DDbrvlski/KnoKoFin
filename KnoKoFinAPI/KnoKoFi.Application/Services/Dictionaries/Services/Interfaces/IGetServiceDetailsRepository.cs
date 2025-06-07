@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Services.Interfaces
 {

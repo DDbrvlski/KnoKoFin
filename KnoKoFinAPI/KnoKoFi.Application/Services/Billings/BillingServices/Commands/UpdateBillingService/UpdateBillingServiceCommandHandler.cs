@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Billings.BillingServices.Dto;
+using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Interfaces.Repositories.Billings;
 using MediatR;

@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Contractors.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using System;
 using System.Collections.Generic;

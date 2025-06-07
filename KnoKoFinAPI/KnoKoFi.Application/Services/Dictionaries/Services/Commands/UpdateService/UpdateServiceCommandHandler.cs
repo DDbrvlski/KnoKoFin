@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;

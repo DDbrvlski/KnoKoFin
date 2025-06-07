@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceDetails;
 using System;
 using System.Collections.Generic;

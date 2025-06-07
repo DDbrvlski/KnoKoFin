@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Application.DTOs;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Dto
+namespace KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos
 {
     public class AddressDetailsDto : BaseDto
     {

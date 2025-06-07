@@ -1,4 +1,4 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto
+﻿namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos
 {
     public class ServiceTypeDto
     {

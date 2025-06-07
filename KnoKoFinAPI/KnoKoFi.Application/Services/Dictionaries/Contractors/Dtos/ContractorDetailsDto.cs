@@ -1,8 +1,9 @@
 ﻿using KnoKoFin.Application.DTOs;
 using KnoKoFin.Application.DTOs.Dictionaries.Addresses;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.CreateAddress;
+using KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dto
+namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos
 {
     public class ContractorDetailsDto : BaseDto
     {
@@ -19,7 +20,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Dto
         public string? BankName { get; set; }
         public string? Fax { get; set; }
         public string? Swift { get; set; }
-        public AddressDetailsDTO? Address { get; set; }
+        public AddressDetailsDto? Address { get; set; }
 
     }
 }

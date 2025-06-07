@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Application.DTOs;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Commands.UpdateAddress;
-using KnoKoFin.Application.Services.Dictionaries.Contractors.Dto;
+using KnoKoFin.Application.Services.Dictionaries.Contractors.Dtos;
 using MediatR;
 
 namespace KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor

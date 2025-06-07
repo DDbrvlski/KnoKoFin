@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
 using MediatR;
 using System;
 using System.Collections.Generic;

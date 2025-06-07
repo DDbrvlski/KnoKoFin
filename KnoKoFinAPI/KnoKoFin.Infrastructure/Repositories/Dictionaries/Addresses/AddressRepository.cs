@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Dto;
+﻿using KnoKoFin.Application.Services.Dictionaries.Addresses.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.Addresses.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
