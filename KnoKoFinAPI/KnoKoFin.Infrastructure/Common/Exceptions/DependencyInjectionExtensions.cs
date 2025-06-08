@@ -25,7 +25,7 @@ namespace KnoKoFin.Infrastructure.Common.Exceptions
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IDictionaryContractorRepository, DictionaryContractorRepository>();
             //services.AddScoped<IServiceRepository, DictionaryServiceRepository>();
-            services.AddScoped<IServiceTypeRepository, ServiceTypeRepository>();
+            services.AddScoped<ITransactionServiceTypeRepository, TransactionServiceTypeRepository>();
             //services.AddScoped<ITransactionTypeRepository, TransactionTypeRepository>();
             #endregion
 

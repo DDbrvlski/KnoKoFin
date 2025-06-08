@@ -22,14 +22,14 @@ namespace KnoKoFin.Infrastructure.Persistence
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpensePosition> ExpensePositions { get; set; }
         public DbSet<Domain.Entities.Billings.BillingService> BillingServices { get; set; }
-        public DbSet<Domain.Entities.Dictionaries.DictionaryService> DictionaryServices { get; set; }
+        public DbSet<Domain.Entities.Dictionaries.DictionaryTransactionService> DictionaryServices { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceMetadata> InvoiceMetadata { get; set; }
         public DbSet<Domain.Entities.Dictionaries.DictionaryContractor> DictionaryContractors { get; set; }
         public DbSet<Domain.Entities.Invoices.InvoiceContractor> InvoiceContractors { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<TransactionServiceType> ServiceTypes { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

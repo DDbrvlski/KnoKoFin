@@ -21,7 +21,7 @@ namespace KnoKoFin.API.Controllers.Dictionaries
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(long id)
         {
-            var service = await Mediator.Send(new GetServiceDetailsQuery { Id = id });
+            var service = await Mediator.Send(new GetTransactionServiceDetailsQuery { Id = id });
 
             if (service == null)
             {
@@ -35,7 +35,7 @@ namespace KnoKoFin.API.Controllers.Dictionaries
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
-            var services = await Mediator.Send(new GetServiceListQuery { });
+            var services = await Mediator.Send(new GetTransactionServiceListQuery { });
 
             return Ok(services);
         }
@@ -44,7 +44,7 @@ namespace KnoKoFin.API.Controllers.Dictionaries
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesDefaultResponseType]
-        public async Task<IActionResult> Create([FromBody] CreateServiceCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateTransactionServiceCommand command)
         {
             var entityId = await Mediator.Send(command);
 

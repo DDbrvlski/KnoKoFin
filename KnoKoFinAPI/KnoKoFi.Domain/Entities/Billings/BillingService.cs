@@ -16,7 +16,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public UnityTypeEnum? Unit { get; set; }
         public int? Quantity { get; set; }
         public long? ServiceTypeId { get; set; }
-        public virtual ServiceType? ServiceType { get; set; }
+        public virtual TransactionServiceType? ServiceType { get; set; }
 
         private BillingService() { }
 

@@ -48,6 +48,6 @@ namespace KnoKoFin.Domain.Entities.Billings
         public long? ServiceTypeId { get; set; }
 
 
-        public virtual ServiceType? ServiceType { get; set; }
+        public virtual TransactionServiceType? ServiceType { get; set; }
     }
 }

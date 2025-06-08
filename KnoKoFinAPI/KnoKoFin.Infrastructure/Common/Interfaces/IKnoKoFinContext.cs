@@ -10,7 +10,7 @@ namespace KnoKoFin.Infrastructure.Common.Interfaces
         DbSet<Address> Addresses { get; set; }
         DbSet<Domain.Entities.Billings.BillingService> BillingServices { get; set; }
         DbSet<Domain.Entities.Dictionaries.DictionaryContractor> DictionaryContractors { get; set; }
-        DbSet<Domain.Entities.Dictionaries.DictionaryService> DictionaryServices { get; set; }
+        DbSet<Domain.Entities.Dictionaries.DictionaryTransactionService> DictionaryServices { get; set; }
         DbSet<ExpensePosition> ExpensePositions { get; set; }
         DbSet<Expense> Expenses { get; set; }
         DbSet<Domain.Entities.Invoices.InvoiceContractor> InvoiceContractors { get; set; }
@@ -18,7 +18,7 @@ namespace KnoKoFin.Infrastructure.Common.Interfaces
         DbSet<Invoice> Invoices { get; set; }
         DbSet<RevenuePosition> RevenuePositions { get; set; }
         DbSet<Revenue> Revenues { get; set; }
-        DbSet<ServiceType> ServiceTypes { get; set; }
+        DbSet<TransactionServiceType> ServiceTypes { get; set; }
         DbSet<TransactionType> TransactionTypes { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

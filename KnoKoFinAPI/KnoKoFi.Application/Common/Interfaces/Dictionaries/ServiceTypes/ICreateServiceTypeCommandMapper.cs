@@ -6,7 +6,7 @@ namespace KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes
 {
     public interface ICreateServiceTypeCommandMapper
     {
-        ServiceType Map(CreateServiceTypeCommand command);
-        CreateServiceTypeResultDto Map(ServiceType serviceType);
+        TransactionServiceType Map(CreateTransactionServiceTypeCommand command);
+        CreateTransactionServiceTypeResultDto Map(TransactionServiceType serviceType);
     }
 }
