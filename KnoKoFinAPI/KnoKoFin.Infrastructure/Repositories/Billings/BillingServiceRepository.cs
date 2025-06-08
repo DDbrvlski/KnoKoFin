@@ -9,19 +9,19 @@ using Microsoft.Extensions.Logging;
 namespace KnoKoFin.Infrastructure.Repositories.Billings
 {
     public class BillingServiceRepository : 
-        GenericRepository<BillingService>, 
+        GenericRepository<BillingTransactionService>, 
         IBillingServiceRepository,
-        IGetBillingServiceDetailsQueryRepository,
-        IGetBillingServiceListQueryRepository
+        IGetBillingTransactionServiceDetailsQueryRepository,
+        IGetBillingTransactionServiceListQueryRepository
     {
-        public BillingServiceRepository(KnoKoFinContext context, ILogger<GenericRepository<BillingService>> logger) : base(context, logger)
+        public BillingServiceRepository(KnoKoFinContext context, ILogger<GenericRepository<BillingTransactionService>> logger) : base(context, logger)
         {
         }
 
-        public async Task<BillingServiceDetailsDto> GetBillingServiceDetailsAsync(long id, CancellationToken cancellationToken)
+        public async Task<BillingTransactionServiceDetailsDto> GetBillingTransactionServiceDetailsAsync(long id, CancellationToken cancellationToken)
         {
             var entity = await GetSingle(id)
-                .Select(x => new BillingServiceDetailsDto()
+                .Select(x => new BillingTransactionServiceDetailsDto()
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -42,10 +42,10 @@ namespace KnoKoFin.Infrastructure.Repositories.Billings
             return entity;
         }
 
-        public async Task<BillingServiceListDto> GetBillingServiceListAsync(CancellationToken cancellationToken)
+        public async Task<BillingTransactionServiceListDto> GetBillingTransactionServiceListAsync(CancellationToken cancellationToken)
         {
             var items = await GetAll()
-                .Select(x => new BillingServiceDto()
+                .Select(x => new BillingTransactionServiceDto()
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -53,7 +53,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Billings
                     ServiceTypeName = x.ServiceType.Name
                 }).ToListAsync(cancellationToken);
 
-            return new BillingServiceListDto() { BillingServices = items };
+            return new BillingTransactionServiceListDto() { BillingServices = items };
         }
     }
 }

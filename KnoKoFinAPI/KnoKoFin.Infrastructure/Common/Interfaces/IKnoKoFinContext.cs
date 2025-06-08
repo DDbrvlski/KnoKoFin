@@ -8,7 +8,7 @@ namespace KnoKoFin.Infrastructure.Common.Interfaces
     public interface IKnoKoFinContext
     {
         DbSet<Address> Addresses { get; set; }
-        DbSet<Domain.Entities.Billings.BillingService> BillingServices { get; set; }
+        DbSet<Domain.Entities.Billings.BillingTransactionService> BillingServices { get; set; }
         DbSet<Domain.Entities.Dictionaries.DictionaryContractor> DictionaryContractors { get; set; }
         DbSet<Domain.Entities.Dictionaries.DictionaryTransactionService> DictionaryServices { get; set; }
         DbSet<ExpensePosition> ExpensePositions { get; set; }

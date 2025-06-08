@@ -9,7 +9,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public long ServiceId { get; set; }
 
         public virtual Revenue Revenue { get; set; }
-        public virtual BillingService Service { get; set; }
+        public virtual BillingTransactionService Service { get; set; }
     }
 
 }

@@ -21,7 +21,7 @@ namespace KnoKoFin.Infrastructure.Persistence
         public DbSet<RevenuePosition> RevenuePositions { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpensePosition> ExpensePositions { get; set; }
-        public DbSet<Domain.Entities.Billings.BillingService> BillingServices { get; set; }
+        public DbSet<Domain.Entities.Billings.BillingTransactionService> BillingServices { get; set; }
         public DbSet<Domain.Entities.Dictionaries.DictionaryTransactionService> DictionaryServices { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<Invoice> Invoices { get; set; }

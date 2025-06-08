@@ -29,9 +29,9 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
                 command.ContractorId,
                 transactionType);
         }
-        public static List<BillingService> MapCommandToBillingServiceList(CreateExpenseCommand command)
+        public static List<BillingTransactionService> MapCommandToBillingServiceList(CreateExpenseCommand command)
         {
-            List<BillingService> billingServices = new();
+            List<BillingTransactionService> billingServices = new();
             
             foreach(var service in command.BillingServices)
             {
@@ -40,7 +40,7 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
                     throw new ArgumentException($"Nieprawidłowy typ jednostki miary: {service.Unit}");
                 }
                 billingServices
-                    .Add(BillingService
+                    .Add(BillingTransactionService
                         .Create(service.Name,
                         service.Description,
                         service.Discount,

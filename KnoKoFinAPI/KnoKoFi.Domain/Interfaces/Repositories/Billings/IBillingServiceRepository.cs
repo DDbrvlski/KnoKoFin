@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KnoKoFin.Domain.Interfaces.Repositories.Billings
 {
-    public interface IBillingServiceRepository : IGenericRepository<BillingService>
+    public interface IBillingServiceRepository : IGenericRepository<BillingTransactionService>
     {
     }
 }

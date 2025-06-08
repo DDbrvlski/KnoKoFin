@@ -12,7 +12,7 @@ namespace KnoKoFin.Domain.Entities.Billings
         public long ServiceId { get; private set; }
 
         public virtual Expense Expense { get; set; }
-        public virtual BillingService Service { get; set; }
+        public virtual BillingTransactionService Service { get; set; }
 
         private ExpensePosition()
         {

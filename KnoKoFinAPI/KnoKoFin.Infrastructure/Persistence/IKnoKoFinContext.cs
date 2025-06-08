@@ -8,7 +8,7 @@ namespace KnoKoFin.Infrastructure.Persistence
     public interface IKnoKoFinContext
     {
         DbSet<Address> Addresses { get; set; }
-        DbSet<BillingService> BillingServices { get; set; }
+        DbSet<BillingTransactionService> BillingServices { get; set; }
         DbSet<DictionaryContractor> DictionaryContractors { get; set; }
         DbSet<DictionaryTransactionService> DictionaryServices { get; set; }
         DbSet<ExpensePosition> ExpensePositions { get; set; }
