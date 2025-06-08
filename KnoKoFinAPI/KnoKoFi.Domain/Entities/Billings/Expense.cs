@@ -12,10 +12,11 @@ namespace KnoKoFin.Domain.Entities.Billings
         public decimal TotalNetPrice { get; private set; }
         public decimal TotalGrossPrice { get; private set; }
         public long? ContractorId { get; private set; }
+        public long? TransactionTypeId { get; private set; }
 
-        public virtual TransactionTypeEnum TransactionType { get; private set; }
+        public virtual TransactionType TransactionType { get; private set; }
         public virtual DictionaryContractor? Contractor { get; private set; }
-        public virtual ICollection<ExpensePosition> Positions { get; private set; }
+        public virtual List<BillingTransactionService>? BillingTransactionService { get; private set; }
 
         private Expense() { }
 
@@ -26,7 +27,7 @@ namespace KnoKoFin.Domain.Entities.Billings
             decimal totalNetPrice,
             decimal totalGrossPrice,
             long? contractorId,
-            TransactionTypeEnum transactionType)
+            long? transactionTypeId)
         {
             return new Expense
             {
@@ -36,7 +37,7 @@ namespace KnoKoFin.Domain.Entities.Billings
                 TotalNetPrice = totalNetPrice,
                 TotalGrossPrice = totalGrossPrice,
                 ContractorId = contractorId,
-                TransactionType = transactionType
+                TransactionTypeId = transactionTypeId
             };
         }
 
@@ -47,7 +48,7 @@ namespace KnoKoFin.Domain.Entities.Billings
             decimal totalNetPrice,
             decimal totalGrossPrice,
             long? contractorId,
-            TransactionTypeEnum transactionType)
+            long? transactionTypeId)
         {
             Name = name;
             Description = description;
@@ -55,7 +56,7 @@ namespace KnoKoFin.Domain.Entities.Billings
             TotalNetPrice = totalNetPrice;
             TotalGrossPrice = totalGrossPrice;
             ContractorId = contractorId;
-            TransactionType = transactionType;
+            TransactionTypeId = transactionTypeId;
         }
     }
 }

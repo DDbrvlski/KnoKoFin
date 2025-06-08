@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.DeleteServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.DeleteTransactionServiceType
 {
     public class DeleteTransactionServiceTypeCommandHandler : IRequestHandler<DeleteTransactionServiceTypeCommand>
     {

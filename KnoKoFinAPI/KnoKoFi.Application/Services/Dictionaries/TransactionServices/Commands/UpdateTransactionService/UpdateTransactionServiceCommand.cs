@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.DTOs;
-using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Commands.UpdateTransactionService
 {
     public class UpdateTransactionServiceCommand : BaseCommand, IRequest<UpdateServiceResultDto>
     {

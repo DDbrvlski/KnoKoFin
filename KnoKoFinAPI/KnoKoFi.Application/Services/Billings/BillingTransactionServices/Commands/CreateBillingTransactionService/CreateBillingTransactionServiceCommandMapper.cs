@@ -2,7 +2,7 @@
 using KnoKoFin.Domain.Enums;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.CreateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Commands.CreateBillingTransactionService
 {
     public static class CreateBillingTransactionServiceCommandMapper
     {

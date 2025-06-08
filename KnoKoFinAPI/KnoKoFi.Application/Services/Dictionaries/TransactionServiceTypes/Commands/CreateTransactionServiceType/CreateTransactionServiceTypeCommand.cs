@@ -1,7 +1,7 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
 using MediatR;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.CreateTransactionServiceType
 {
     public class CreateTransactionServiceTypeCommand : IRequest<CreateTransactionServiceTypeResultDto>
     {

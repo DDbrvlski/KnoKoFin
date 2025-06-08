@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Services.Billings.BillingServices.Commands.CreateBillingService;
-using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
+using KnoKoFin.Application.Services.Billings.BillingTransactionServices.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Entities.Billings;
 using KnoKoFin.Domain.Enums;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Commands.UpdateBillingTransactionService
 {
     public static class UpdateBillingTransactionServiceCommandMapper
     {
@@ -55,6 +55,6 @@ namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.Update
                 LastModifiedAt = entity.UpdatedAt,
                 RowVersion = entity.RowVersion
             };
-        
+
+        }
     }
-}

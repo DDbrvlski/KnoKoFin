@@ -14,6 +14,6 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Dtos
         public DateTime PurchaseDate { get; set; }
         public decimal TotalGrossPrice { get; set; }
         public string ContractorName { get; set; }
-        public string TransactionType { get; set; }
+        public string TransactionTypeName { get; set; }
     }
 }

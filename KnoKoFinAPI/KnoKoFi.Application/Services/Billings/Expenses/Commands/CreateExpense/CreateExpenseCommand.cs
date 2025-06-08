@@ -16,7 +16,7 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
         public decimal TotalNetPrice { get; set; }
         public decimal TotalGrossPrice { get; set; }
         public long? ContractorId { get; set; }
-        public string TransactionType { get; set; }
+        public long? TransactionTypeId { get; set; }
         public List<CreateBillingServiceDto> BillingServices { get; set; }
         
     }

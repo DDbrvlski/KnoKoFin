@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
+using KnoKoFin.Application.Services.Billings.BillingTransactionServices.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using KnoKoFin.Domain.Interfaces.Repositories.Billings;
 using MediatR;
@@ -9,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Commands.UpdateBillingTransactionService
 {
     public class UpdateBillingTransactionServiceCommandHandler : IRequestHandler<UpdateBillingTransactionServiceCommand, UpdateBillingTransactionServiceResultDto>
     {
-        private readonly IBillingServiceRepository _billingServiceRepository;
-        public UpdateBillingTransactionServiceCommandHandler(IBillingServiceRepository billingServiceRepository)
+        private readonly IBillingTransactionServiceRepository _billingServiceRepository;
+        public UpdateBillingTransactionServiceCommandHandler(IBillingTransactionServiceRepository billingServiceRepository)
         {
             _billingServiceRepository = billingServiceRepository;
         }
@@ -25,7 +25,7 @@ namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.Update
             {
                 throw new NotFoundException("Wystąpił błąd - nie znaleziono wybranego serwisu.");
             }
-            
+
             UpdateBillingTransactionServiceCommandMapper.ApplyUpdate(oldEntity, request);
 
             var newEntity = await _billingServiceRepository.UpdateAsync(oldEntity, cancellationToken);

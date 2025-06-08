@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateService
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Commands.UpdateTransactionService
 {
     public class UpdateTransactionServiceCommandHandler : IRequestHandler<UpdateTransactionServiceCommand, UpdateServiceResultDto>
     {
@@ -26,7 +26,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.UpdateSer
         public async Task<UpdateServiceResultDto> Handle(UpdateTransactionServiceCommand request, CancellationToken cancellationToken)
         {
             var serviceToUpdate = await _serviceRepository.GetByIdAsync(request.Id, cancellationToken);
-            if (serviceToUpdate == null) 
+            if (serviceToUpdate == null)
             {
                 throw new UpdateFailureException(nameof(serviceToUpdate), request.Id, "Nie znaleziono podanego serwisu do aktualizacji");
             }

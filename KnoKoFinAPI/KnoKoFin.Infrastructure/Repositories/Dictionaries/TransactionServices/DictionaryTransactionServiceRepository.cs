@@ -1,12 +1,13 @@
 ﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
-using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Interfaces;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using KnoKoFin.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.Services
+namespace KnoKoFin.Infrastructure.Repositories.Dictionaries.TransactionServices
 {
     public class DictionaryTransactionServiceRepository : GenericRepository<DictionaryTransactionService>, IGetTransactionServiceDetailsRepository, IGetTransactionServiceListRepository
     {

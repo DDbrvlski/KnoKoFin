@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Application.Common.Exceptions;
-using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
-using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceDetails
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Queries.GetTransactionServiceDetails
 {
     public class GetTransactionServiceDetailsQueryHandler : IRequestHandler<GetTransactionServiceDetailsQuery, TransactionServiceDetailsDto>
     {
@@ -22,7 +22,7 @@ namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetService
         public async Task<TransactionServiceDetailsDto> Handle(GetTransactionServiceDetailsQuery request, CancellationToken cancellationToken)
         {
             var serviceDetailsDto = await _serviceRepository.GetTransactionServiceDetailsAsync(request.Id, cancellationToken);
-            if (serviceDetailsDto == null) 
+            if (serviceDetailsDto == null)
             {
                 throw new NotFoundException($"Nie znaleziono serwisu o id {request.Id}");
             }

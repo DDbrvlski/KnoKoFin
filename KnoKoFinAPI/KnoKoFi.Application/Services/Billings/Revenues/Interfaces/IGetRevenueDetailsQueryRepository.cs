@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.Revenue.Commands.DeleteRevenue
+namespace KnoKoFin.Application.Services.Billings.Revenues.Interfaces
 {
-    internal class DeleteRevenueCommand
+    public class IGetRevenueDetailsQueryRepository
     {
     }
 }

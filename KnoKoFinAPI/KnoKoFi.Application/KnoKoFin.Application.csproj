@@ -18,7 +18,7 @@
     <Folder Include="Common\Interfaces\Invoices\" />
     <Folder Include="Helpers\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Services\Billings\Revenue\Queries\" />
+    <Folder Include="Services\Billings\Revenues\Dtos\" />
     <Folder Include="Services\Invoices\InvoiceContractor\Queries\" />
     <Folder Include="Services\Invoices\InvoiceMetdata\Queries\" />
     <Folder Include="Services\Invoices\Invoice\Queries\" />

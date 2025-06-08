@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.DeleteServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.DeleteTransactionServiceType
 {
     public class DeleteTransactionServiceTypeCommand : IRequest
     {

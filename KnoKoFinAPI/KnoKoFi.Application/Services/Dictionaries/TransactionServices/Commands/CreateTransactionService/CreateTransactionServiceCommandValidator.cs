@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateService
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Commands.CreateTransactionService
 {
     internal class CreateTransactionServiceCommandValidator
     {

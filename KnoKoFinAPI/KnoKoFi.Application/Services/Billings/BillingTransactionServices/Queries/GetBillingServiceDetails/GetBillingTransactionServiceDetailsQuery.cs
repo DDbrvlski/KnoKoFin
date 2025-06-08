@@ -1,7 +1,7 @@
-﻿using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
+﻿using KnoKoFin.Application.Services.Billings.BillingTransactionServices.Dtos;
 using MediatR;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Queries.GetBillingServiceDetails
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Queries.GetBillingServiceDetails
 {
     public class GetBillingTransactionServiceDetailsQuery : IRequest<BillingTransactionServiceDetailsDto>
     {

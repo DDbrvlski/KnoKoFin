@@ -1,6 +1,6 @@
 ﻿using KnoKoFin.Domain.Entities.Dictionaries;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateService
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Commands.CreateTransactionService
 {
     public class CreateTransactionServiceCommandMapper
     {

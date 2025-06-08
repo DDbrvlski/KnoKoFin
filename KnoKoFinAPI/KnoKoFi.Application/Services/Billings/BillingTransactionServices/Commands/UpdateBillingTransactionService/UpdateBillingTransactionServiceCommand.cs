@@ -1,5 +1,5 @@
 ﻿using KnoKoFin.Application.DTOs;
-using KnoKoFin.Application.Services.Billings.BillingServices.Dtos;
+using KnoKoFin.Application.Services.Billings.BillingTransactionServices.Dtos;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dto;
 using MediatR;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.UpdateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Commands.UpdateBillingTransactionService
 {
     public class UpdateBillingTransactionServiceCommand : BaseCommand, IRequest<UpdateBillingTransactionServiceResultDto>
     {

@@ -1,4 +1,4 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Queries.GetTransactionServiceList
 {
     public class GetTransactionServiceListQuery : IRequest<TransactionServiceListDto>
     {

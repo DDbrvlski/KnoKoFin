@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.Revenue.Commands.DeleteRevenue
+namespace KnoKoFin.Application.Services.Billings.Revenues.Queries.GetRevenueList
 {
-    internal class DeleteRevenueCommandHandler
+    internal class GetRevenueDetailsQuery
     {
     }
 }

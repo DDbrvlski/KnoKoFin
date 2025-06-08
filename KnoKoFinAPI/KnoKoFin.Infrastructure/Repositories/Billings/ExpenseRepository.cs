@@ -43,7 +43,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Billings
                     PurchaseDate = x.PurchaseDate,
                     TotalGrossPrice = x.TotalGrossPrice,
                     ContractorName = x.Contractor.Name ?? $"{x.Contractor.FirstName} {x.Contractor.LastName}",
-                    TransactionType = x.TransactionType.ToString()
+                    TransactionTypeName = x.TransactionType.Name
                 }).ToListAsync();
 
             return new ExpenseListDto { ExpenseItems = items };
@@ -58,7 +58,7 @@ namespace KnoKoFin.Infrastructure.Repositories.Billings
             PurchaseDate = x.PurchaseDate,
             TotalGrossPrice = x.TotalGrossPrice,
             TotalNetPrice = x.TotalNetPrice,
-            TransactionType = x.TransactionType.ToString(),
+            TransactionTypeName = x.TransactionType.Name,
             ContractorDetails = new ContractorDetailsDto
             {
                 Id = x.Contractor.Id,
@@ -88,7 +88,23 @@ namespace KnoKoFin.Infrastructure.Repositories.Billings
                     LastModifiedAt = x.Contractor.Address.UpdatedAt,
                     RowVersion = x.Contractor.Address.RowVersion
                 }
-            }
+            },
+            BillingServiceDetailsList = x.BillingTransactionService
+                .Select(z => new BillingServiceDetailsDto()
+                {
+                    Id = z.Id,
+                    Description = z.Description,
+                    Discount = z.Discount,
+                    GrossPrice = z.GrossPrice,
+                    NetPrice = z.NetPrice,
+                    Name = z.Name,
+                    Quantity = z.Quantity,
+                    ServiceTypeId = z.ServiceTypeId,
+                    ServiceTypeName = z.ServiceType.Name,
+                    Unit = z.Unit.ToString(),
+                    Vat = z.Vat
+                }).ToList()
+            
         };
 
     }

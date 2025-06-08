@@ -1,9 +1,9 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.UpdateServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.UpdateTransactionServiceType
 {
     public class UpdateTransactionServiceTypeCommandHandler : IRequestHandler<UpdateTransactionServiceTypeCommand, UpdateTransactionServiceTypeResultDto>
     {

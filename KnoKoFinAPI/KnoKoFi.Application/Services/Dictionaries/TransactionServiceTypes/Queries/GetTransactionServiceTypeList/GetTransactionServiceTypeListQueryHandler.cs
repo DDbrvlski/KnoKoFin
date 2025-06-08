@@ -1,9 +1,9 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Interfaces;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Queries.GetTransactionServiceTypeList
 {
     public class GetTransactionServiceTypeListQueryHandler : IRequestHandler<GetTransactionServiceTypeListQuery, TransactionServiceTypeListDto>
     {

@@ -16,14 +16,19 @@ namespace KnoKoFin.Domain.Entities.Billings
         public UnityTypeEnum? Unit { get; set; }
         public int? Quantity { get; set; }
         public long? ServiceTypeId { get; set; }
+        public long? ExpensesId { get; set; }
+        public long? RevenuesId { get; set; }
         public virtual TransactionServiceType? ServiceType { get; set; }
+        public virtual Expense? Expense { get; set; }
+        public virtual Revenue? Revenue { get; set; }
 
         private BillingTransactionService() { }
 
         public static BillingTransactionService Create
             (string? name, string? description, decimal? discount,
              decimal? netPrice, decimal? grossPrice, decimal? vat,
-             UnityTypeEnum? unit, int? quantity, long? serviceTypeId)
+             UnityTypeEnum? unit, int? quantity, long? serviceTypeId, 
+             long? revenueId, long? expenseId)
         {
             return new BillingTransactionService
             {
@@ -35,14 +40,17 @@ namespace KnoKoFin.Domain.Entities.Billings
                 Vat = vat,
                 Unit = unit,
                 Quantity = quantity,
-                ServiceTypeId = serviceTypeId
+                ServiceTypeId = serviceTypeId,
+                ExpensesId = expenseId,
+                RevenuesId = revenueId
             };
         }
 
         public void Update
             (string? name, string? description, decimal? discount,
              decimal? netPrice, decimal? grossPrice, decimal? vat,
-             UnityTypeEnum? unit, int? quantity, long? serviceTypeId)
+             UnityTypeEnum? unit, int? quantity, long? serviceTypeId, 
+             long? revenueId, long? expenseId)
         {
             Name = name;
             Description = description;
@@ -53,6 +61,8 @@ namespace KnoKoFin.Domain.Entities.Billings
             Unit = unit;
             Quantity = quantity;
             ServiceTypeId = serviceTypeId;
+            ExpensesId = expenseId;
+            RevenuesId = revenueId;
         }
     }
 

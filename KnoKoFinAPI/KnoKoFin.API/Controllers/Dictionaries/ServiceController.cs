@@ -7,9 +7,9 @@ using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.DeleteCont
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorList;
-using KnoKoFin.Application.Services.Dictionaries.Services.Commands.CreateService;
 using KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceDetails;
 using KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Commands.CreateTransactionService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KnoKoFin.API.Controllers.Dictionaries

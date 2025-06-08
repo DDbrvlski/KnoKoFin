@@ -1,4 +1,5 @@
-﻿using KnoKoFin.Domain.Entities.Billings;
+﻿using KnoKoFin.Application.Services.Billings.Revenues.Commands.CreateRevenue;
+using KnoKoFin.Domain.Entities.Billings;
 using KnoKoFin.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,6 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
     {
         public static Expense MapCommandToExpense(CreateExpenseCommand command)
         {
-            //Przenieść do validatora
-            if (!Enum.TryParse<TransactionTypeEnum>(command.TransactionType, true, out var transactionType))
-            {
-                throw new ArgumentException($"Nieprawidłowy typ transakcji: {command.TransactionType}");
-            }
 
             return Expense
                 .Create
@@ -27,9 +23,9 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
                 command.TotalNetPrice,
                 command.TotalGrossPrice,
                 command.ContractorId,
-                transactionType);
+                command.TransactionTypeId);
         }
-        public static List<BillingTransactionService> MapCommandToBillingServiceList(CreateExpenseCommand command)
+        public static List<BillingTransactionService> MapCommandToBillingServiceList(CreateRevenueCommand command, long? expenseId)
         {
             List<BillingTransactionService> billingServices = new();
             
@@ -49,7 +45,9 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Commands.CreateExpense
                         service.Vat,
                         unitType,
                         service.Quantity,
-                        service.ServiceTypeId));
+                        service.ServiceTypeId,
+                        null,
+                        expenseId));
             }
 
             return billingServices;

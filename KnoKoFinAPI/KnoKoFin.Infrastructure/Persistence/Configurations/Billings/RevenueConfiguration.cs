@@ -33,13 +33,13 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Billings
                 .HasColumnType("decimal(10,2)")
                 .HasColumnName("TOTAL_GROSS_PRICE");
 
-            builder.Property(r => r.TransactionType)
-                .HasColumnName("TRANSACTION_TYPE")
-                .HasMaxLength(50)
-                .IsRequired()
-                .HasConversion(
-                    v => v.ToString(),
-                    v => (TransactionTypeEnum)Enum.Parse(typeof(TransactionTypeEnum), v));
+            builder.Property(e => e.TransactionTypeId)
+               .HasColumnName("TRANSACTION_TYPE_ID");
+
+            builder.HasOne(e => e.TransactionType)
+                .WithMany()
+                .HasForeignKey(e => e.TransactionTypeId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Property(r => r.InvoiceId)
                 .HasColumnName("INVOICE_ID");
@@ -58,9 +58,7 @@ namespace KnoKoFin.Infrastructure.Persistence.Configurations.Billings
                 .HasForeignKey(r => r.ContractorId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasMany(r => r.Positions)
-                .WithOne()
-                .HasForeignKey("RevenueId");
+
         }
     }
 }

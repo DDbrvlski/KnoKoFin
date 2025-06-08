@@ -2,6 +2,7 @@
 using KnoKoFin.Domain.Interfaces.Repositories;
 using KnoKoFin.Infrastructure.Common.Exceptions;
 using KnoKoFin.Infrastructure.Persistence;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -129,6 +130,36 @@ namespace KnoKoFin.Infrastructure.Repositories
             }
         }
 
+        public async Task<List<T>> UpdateManyAsync(List<T> entities, CancellationToken cancellationToken)
+        {
+            try
+            {
+                _dbSet.UpdateRange(entities);
+                await _context.SaveChangesAsync(cancellationToken);
+                return entities;
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlEx)
+            {
+                _logger.LogError(sqlEx, "Błąd SQL podczas aktualizacji encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
+                    typeof(T).Name, sqlEx.Number, sqlEx.Message);
+
+                throw new DatabaseOperationException($"Błąd SQL podczas aktualizacji encji {typeof(T).Name}.");
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Błąd EF podczas aktualizacji encji {EntityName}. Szczegóły: {ErrorMessage}",
+                    typeof(T).Name, ex.Message);
+
+                throw new DatabaseOperationException($"Błąd EF podczas aktualizacji encji {typeof(T).Name}.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Nieoczekiwany błąd podczas aktualizacji encji {EntityName}. Szczegóły: {ErrorMessage}",
+                    typeof(T).Name, ex.Message);
+
+                throw new DatabaseOperationException($"Nieoczekiwany błąd podczas aktualizacji encji {typeof(T).Name}.");
+            }
+        }
 
         public async Task DeleteAsync(long id, CancellationToken cancellationToken)
         {
@@ -144,6 +175,39 @@ namespace KnoKoFin.Infrastructure.Repositories
                 {
                     _logger.LogError($"Nie znaleziono encji {nameof(T)} o ID: {entity.Id}");
                     throw new NotFoundException(nameof(T), entity.Id);
+                }
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is Microsoft.Data.SqlClient.SqlException sqlEx)
+            {
+                _logger.LogError(sqlEx, "Błąd SQL podczas usuwania encji {EntityName}. Numer błędu: {ErrorNumber}, Szczegóły: {ErrorMessage}",
+                    typeof(T).Name, sqlEx.Number, sqlEx.Message);
+
+                throw new DatabaseOperationException($"Błąd SQL podczas usuwania encji {typeof(T).Name}.");
+            }
+        }
+
+        public async Task DeleteManyAsync(List<T> items, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var ids = items.Select(x => x.Id).ToList();
+
+                var entities = await GetAll()
+                    .Where(x => ids.Contains(x.Id))
+                    .ToListAsync();
+
+                if (entities.Count() > 0)
+                {
+                    foreach(var entity in entities)
+                    {
+                        entity.IsActive = false;
+                    }
+                    await _context.SaveChangesAsync(cancellationToken);
+                }
+                else
+                {
+                    _logger.LogError($"Nie znaleziono listy obiektów {nameof(T)}");
+                    throw new NotFoundException(nameof(T), $"Listy obiektów do usunięcia");
                 }
             }
             catch (DbUpdateException ex) when (ex.InnerException is Microsoft.Data.SqlClient.SqlException sqlEx)

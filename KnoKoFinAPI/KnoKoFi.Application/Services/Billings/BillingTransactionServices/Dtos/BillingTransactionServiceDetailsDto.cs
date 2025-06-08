@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Dtos
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Dtos
 {
     public class BillingTransactionServiceDetailsDto : BaseDto
     {

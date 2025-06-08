@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Queries.GetTransactionServiceList
 {
     //public static class GetServiceListQueryMapper
     //{

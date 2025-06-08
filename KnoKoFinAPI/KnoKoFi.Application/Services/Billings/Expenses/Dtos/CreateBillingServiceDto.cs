@@ -11,7 +11,6 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Dtos
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public bool Archival { get; set; } = false;
         public decimal? Discount { get; set; }
         public decimal? NetPrice { get; set; }
         public decimal? GrossPrice { get; set; }

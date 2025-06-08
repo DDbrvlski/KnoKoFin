@@ -13,7 +13,9 @@ namespace KnoKoFin.Domain.Interfaces.Repositories
         Task<List<T>> CreateManyAsync(List<T> entities, CancellationToken cancellationToken);
         Task<T> CreateAsync(T entity, CancellationToken cancellationToken);
         Task<T> UpdateAsync(T entity, CancellationToken cancellationToken);
+        Task<List<T>> UpdateManyAsync(List<T> entities, CancellationToken cancellationToken);
         Task DeleteAsync(long id, CancellationToken cancellationToken);
+        Task DeleteManyAsync(List<T> items, CancellationToken cancellationToken);
         Task<bool> ExistsAsync(long id);
     }
 }

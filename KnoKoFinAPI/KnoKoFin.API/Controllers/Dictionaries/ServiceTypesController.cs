@@ -3,10 +3,10 @@ using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.DeleteCont
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Commands.UpdateContractor;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorDetails;
 using KnoKoFin.Application.Services.Dictionaries.Contractors.Queries.GetContractorList;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.DeleteServiceType;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.UpdateServiceType;
 using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.CreateTransactionServiceType;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.UpdateTransactionServiceType;
 using KnoKoFin.Domain.Entities.Dictionaries;
 using Microsoft.AspNetCore.Mvc;
 

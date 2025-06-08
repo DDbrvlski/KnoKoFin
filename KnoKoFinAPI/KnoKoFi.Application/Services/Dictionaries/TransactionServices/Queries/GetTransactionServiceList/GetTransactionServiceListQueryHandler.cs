@@ -1,6 +1,6 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.Services.Dtos;
-using KnoKoFin.Application.Services.Dictionaries.Services.Interfaces;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServices.Interfaces;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Dictionaries.Services.Queries.GetServiceList
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServices.Queries.GetTransactionServiceList
 {
     public class GetTransactionServiceListQueryHandler : IRequestHandler<GetTransactionServiceListQuery, TransactionServiceListDto>
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.Revenue.Commands.UpdateRevenue
+namespace KnoKoFin.Application.Services.Billings.Revenues.Commands.CreateRevenue
 {
-    internal class UpdateRevenueCommandMapper
+    internal class CreateRevenueCommandValidator
     {
     }
 }

@@ -18,6 +18,9 @@ namespace KnoKoFin.Application.Services.Billings.Expenses.Dtos
         public decimal TotalGrossPrice { get; set; }
         public ContractorDetailsDto ContractorDetails { get; set; }
 
-        public string TransactionType { get; set; }
+        public long TransactionTypeId { get; set; }
+        public string TransactionTypeName { get; set; }
+
+        public List<BillingServiceDetailsDto> BillingServiceDetailsList { get; set; }
     }
 }

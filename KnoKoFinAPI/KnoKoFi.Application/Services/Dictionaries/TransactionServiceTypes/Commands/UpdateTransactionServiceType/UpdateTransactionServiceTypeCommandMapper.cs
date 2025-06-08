@@ -1,7 +1,7 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
 using KnoKoFin.Domain.Entities.Dictionaries;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.UpdateServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.UpdateTransactionServiceType
 {
     public static class UpdateTransactionServiceTypeCommandMapper
     {

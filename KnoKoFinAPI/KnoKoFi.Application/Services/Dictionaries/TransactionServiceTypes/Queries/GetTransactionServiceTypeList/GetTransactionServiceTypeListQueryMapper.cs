@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Queries.GetServiceTypeList
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Queries.GetTransactionServiceTypeList
 {
     //public static class GetServiceTypeListQueryMapper
     //{

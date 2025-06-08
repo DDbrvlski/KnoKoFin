@@ -1,4 +1,4 @@
-﻿namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.UpdateServiceType
+﻿namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.UpdateTransactionServiceType
 {
     public class UpdateTransactionServiceTypeCommandValidator
     {

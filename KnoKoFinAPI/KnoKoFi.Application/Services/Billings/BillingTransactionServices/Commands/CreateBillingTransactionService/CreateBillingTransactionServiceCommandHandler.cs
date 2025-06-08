@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KnoKoFin.Application.Services.Billings.BillingServices.Commands.CreateBillingService
+namespace KnoKoFin.Application.Services.Billings.BillingTransactionServices.Commands.CreateBillingTransactionService
 {
     public class CreateBillingTransactionServiceCommandHandler : IRequestHandler<CreateBillingTransactionServiceCommand, long>
     {
-        private readonly IBillingServiceRepository _billingService;
-        public CreateBillingTransactionServiceCommandHandler(IBillingServiceRepository billingService)
+        private readonly IBillingTransactionServiceRepository _billingService;
+        public CreateBillingTransactionServiceCommandHandler(IBillingTransactionServiceRepository billingService)
         {
             _billingService = billingService;
         }

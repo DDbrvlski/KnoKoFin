@@ -1,5 +1,5 @@
-﻿using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
+﻿using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.CreateTransactionServiceType;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
 using KnoKoFin.Domain.Entities.Dictionaries;
 
 namespace KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes

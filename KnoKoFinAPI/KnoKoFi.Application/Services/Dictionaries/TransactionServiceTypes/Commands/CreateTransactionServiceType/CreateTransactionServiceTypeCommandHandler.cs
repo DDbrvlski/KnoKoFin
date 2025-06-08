@@ -1,10 +1,10 @@
 ﻿using KnoKoFin.Application.Common.Interfaces.Dictionaries.ServiceTypes;
-using KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Dtos;
+using KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Dtos;
 using KnoKoFin.Domain.Interfaces.Repositories.Dictionaries;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace KnoKoFin.Application.Services.Dictionaries.ServiceTypes.Commands.CreateServiceType
+namespace KnoKoFin.Application.Services.Dictionaries.TransactionServiceTypes.Commands.CreateTransactionServiceType
 {
     public class CreateTransactionServiceTypeCommandHandler : IRequestHandler<CreateTransactionServiceTypeCommand, CreateTransactionServiceTypeResultDto>
     {
